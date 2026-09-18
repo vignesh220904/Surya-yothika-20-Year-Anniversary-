@@ -406,27 +406,39 @@
         }
         .royal-heart-pulse { animation: royalHeartPulse 2.4s ease-in-out infinite; }
 
-        /* Infinite Smooth Sliding Marquee Ribbons */
+        /* Infinite Butter-Smooth 60FPS Sliding Marquee Ribbons */
         @keyframes slideLeft {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
         }
 
         @keyframes slideRight {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
+            0% { transform: translate3d(-50%, 0, 0); }
+            100% { transform: translate3d(0, 0, 0); }
+        }
+
+        .marquee-container {
+            contain: paint layout;
         }
 
         .marquee-track-left {
             display: flex;
             width: max-content;
-            animation: slideLeft 42s linear infinite;
+            will-change: transform;
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+            animation: slideLeft 45s linear infinite;
         }
 
         .marquee-track-right {
             display: flex;
             width: max-content;
-            animation: slideRight 42s linear infinite;
+            will-change: transform;
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+            animation: slideRight 45s linear infinite;
         }
 
         .marquee-container:hover .marquee-track-left,
@@ -435,12 +447,19 @@
         }
 
         .memory-slide-card {
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+            contain: layout style paint;
+            will-change: transform;
+            backface-visibility: hidden;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
         }
         .memory-slide-card:hover {
-            transform: translateY(-8px) scale(1.03);
+            transform: translate3d(0, -8px, 0) scale(1.03);
             box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9), 0 0 30px rgba(212, 175, 55, 0.6);
             border-color: #ECC86C;
+        }
+
+        .card-img-holder {
+            background: radial-gradient(circle at center, rgba(90, 16, 30, 0.5) 0%, rgba(12, 2, 4, 0.95) 100%);
         }
 
         /* Carousel Progress Bar Animation */
@@ -979,8 +998,7 @@
                             
                             <!-- Slide Items (Batch 1) -->
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(0)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (1).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (1).jpg" alt="Altar Vows" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Chapel</span>
                                 </div>
@@ -991,8 +1009,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(1)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (2).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (2).jpg" alt="Petal Shower" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Joy</span>
                                 </div>
@@ -1003,8 +1020,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(2)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (3).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (3).jpg" alt="Tender Whispers" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Love</span>
                                 </div>
@@ -1015,8 +1031,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(3)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (4).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (4).jpg" alt="Castle Bride" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Bride</span>
                                 </div>
@@ -1027,8 +1042,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(4)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (5).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (5).jpg" alt="Joined Before God" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Covenant</span>
                                 </div>
@@ -1039,8 +1053,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(5)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (6).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (6).jpg" alt="Chapel Assembly" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Sanctuary</span>
                                 </div>
@@ -1052,8 +1065,7 @@
 
                             <!-- Duplicate Set for Seamless Infinite Left Loop -->
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(0)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (1).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (1).jpg" alt="Altar Vows" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Chapel</span>
                                 </div>
@@ -1064,8 +1076,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(1)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (2).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (2).jpg" alt="Petal Shower" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Joy</span>
                                 </div>
@@ -1076,8 +1087,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(2)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (3).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (3).jpg" alt="Tender Whispers" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Love</span>
                                 </div>
@@ -1088,8 +1098,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(3)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (4).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (4).jpg" alt="Castle Bride" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Bride</span>
                                 </div>
@@ -1100,8 +1109,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(4)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (5).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (5).jpg" alt="Joined Before God" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Covenant</span>
                                 </div>
@@ -1112,8 +1120,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(5)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (6).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (6).jpg" alt="Chapel Assembly" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Sanctuary</span>
                                 </div>
@@ -1133,8 +1140,7 @@
                             
                             <!-- Slide Items (Batch 2) -->
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(6)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (7).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (7).jpg" alt="Loch Lomond" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Highlands</span>
                                 </div>
@@ -1145,8 +1151,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(7)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (8).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (8).jpg" alt="Joined Rings" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Sacred Rings</span>
                                 </div>
@@ -1157,8 +1162,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(8)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (9).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (9).jpg" alt="Highland Embrace" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Romance</span>
                                 </div>
@@ -1169,8 +1173,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(9)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (10).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (10).jpg" alt="Castle Staircase" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Castle</span>
                                 </div>
@@ -1181,8 +1184,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(10)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (11).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (11).jpg" alt="Castle Library" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Vintage</span>
                                 </div>
@@ -1193,8 +1195,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(11)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (12).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (12).jpg" alt="Royal Splendor" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Elegance</span>
                                 </div>
@@ -1205,8 +1206,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(12)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (13).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (13).jpg" alt="Castle Gate" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Estate</span>
                                 </div>
@@ -1218,8 +1218,7 @@
 
                             <!-- Duplicate Set for Seamless Infinite Right Loop -->
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(6)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (7).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (7).jpg" alt="Loch Lomond" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Highlands</span>
                                 </div>
@@ -1230,8 +1229,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(7)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (8).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (8).jpg" alt="Joined Rings" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Sacred Rings</span>
                                 </div>
@@ -1242,8 +1240,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(8)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (9).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (9).jpg" alt="Highland Embrace" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Romance</span>
                                 </div>
@@ -1254,8 +1251,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(9)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (10).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (10).jpg" alt="Castle Staircase" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Castle</span>
                                 </div>
@@ -1266,8 +1262,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(10)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (11).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (11).jpg" alt="Castle Library" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Vintage</span>
                                 </div>
@@ -1278,8 +1273,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(11)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (12).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (12).jpg" alt="Royal Splendor" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Elegance</span>
                                 </div>
@@ -1290,8 +1284,7 @@
                             </div>
 
                             <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(12)">
-                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
-                                    <img src="./sj/1 (13).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
                                     <img src="./sj/1 (13).jpg" alt="Castle Gate" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
                                     <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Estate</span>
                                 </div>
@@ -1301,6 +1294,311 @@
                                 </div>
                             </div>
 
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             "THE ROYAL COURT & HIGHLAND FELLOWSHIP" SQUAD GALLERY
+             ========================================== -->
+        <section id="royal-court" class="relative py-28 px-4 bg-gradient-to-b from-royal-damask via-burgundy-dark/95 to-royal-damask border-b border-gold/20 overflow-hidden">
+            <!-- Ambient Glow Accents -->
+            <div class="absolute top-1/4 -left-40 w-96 h-96 bg-emerald-deep/20 rounded-full filter blur-[100px] pointer-events-none"></div>
+            <div class="absolute bottom-1/4 -right-40 w-96 h-96 bg-ruby/20 rounded-full filter blur-[100px] pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto relative z-10">
+                
+                <!-- Section Header -->
+                <div class="text-center mb-14">
+                    <div class="inline-flex items-center gap-2 text-gold text-sm tracking-[0.3em] uppercase font-sans mb-2">
+                        <i data-lucide="crown" class="w-4 h-4"></i>
+                        <span>The Kinfolk &amp; Royal Court</span>
+                        <i data-lucide="crown" class="w-4 h-4"></i>
+                    </div>
+                    <h2 class="font-cinzel text-4xl sm:text-5xl md:text-6xl text-gold-foil font-bold mb-4">
+                        The Royal Court &amp; Fellowship
+                    </h2>
+                    <p class="font-cursive text-2xl sm:text-3xl text-gold-light/90 max-w-3xl mx-auto">
+                        Celebrating 20 Years of Joy with our Beloved Groomsmen Brotherhood, Bridal Court &amp; Scottish Castle Gathering
+                    </p>
+                    <div class="celtic-divider max-w-xs mx-auto">
+                        <span class="text-gold text-base">✦ 🥂 ✦</span>
+                    </div>
+
+                    <!-- Category Filter Buttons -->
+                    <div class="flex flex-wrap items-center justify-center gap-3 mt-8" id="court-filter-bar">
+                        <button onclick="filterCourtMoments('all', this)" class="court-filter-btn px-5 py-2 rounded-full border border-gold bg-gold text-burgundy-dark font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-gold-glow cursor-pointer" data-filter="all">
+                            ✦ All Court Moments (9)
+                        </button>
+                        <button onclick="filterCourtMoments('bridesmaids', this)" class="court-filter-btn px-5 py-2 rounded-full border border-gold/40 bg-burgundy/60 text-gold hover:bg-gold/20 font-sans text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer" data-filter="bridesmaids">
+                            👑 Bridal Court &amp; Maidens
+                        </button>
+                        <button onclick="filterCourtMoments('groomsmen', this)" class="court-filter-btn px-5 py-2 rounded-full border border-gold/40 bg-burgundy/60 text-gold hover:bg-gold/20 font-sans text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer" data-filter="groomsmen">
+                            🎩 Groomsmen Brotherhood
+                        </button>
+                        <button onclick="filterCourtMoments('assembly', this)" class="court-filter-btn px-5 py-2 rounded-full border border-gold/40 bg-burgundy/60 text-gold hover:bg-gold/20 font-sans text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer" data-filter="assembly">
+                            🏰 Grand Castle Assembly
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 3D Luxury Polaroid & Plaque Masonry Grid (All 9 gang photos with 100% full face visibility) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="court-grid">
+                    
+                    <!-- 1. Bridal Court in Garden -->
+                    <div class="court-card tilt-card gold-border-box p-4 rounded-sm shadow-royal-card group cursor-pointer" data-category="bridesmaids" onclick="openRoyalLightbox(0, 'gang')">
+                        <div class="corner-ornament corner-tl"></div>
+                        <div class="corner-ornament corner-tr"></div>
+                        <div class="corner-ornament corner-bl"></div>
+                        <div class="corner-ornament corner-br"></div>
+
+                        <div class="w-full h-80 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
+                            <img src="./sj-gang/2 (1).jpg" alt="The Radiant Bridal Court" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-104 transition-transform duration-500 filter drop-shadow-lg">
+                            <div class="absolute top-3 left-3 z-20 bg-burgundy-dark/90 border border-gold/50 text-gold px-2.5 py-1 rounded text-[11px] font-sans uppercase tracking-widest flex items-center gap-1 shadow">
+                                <i data-lucide="crown" class="w-3 h-3 text-gold"></i>
+                                <span>Bridal Court</span>
+                            </div>
+                            <div class="absolute bottom-3 right-3 z-20 bg-gold text-burgundy-dark px-2.5 py-1 rounded text-[10px] font-sans font-bold uppercase tracking-wider shadow opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                                <i data-lucide="maximize-2" class="w-3 h-3"></i>
+                                <span>Zoom HD</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 text-center">
+                            <h4 class="font-cinzel text-lg sm:text-xl text-white font-bold text-gold-foil mb-1 group-hover:text-gold-light transition-colors">
+                                The Radiant Bridal Court
+                            </h4>
+                            <p class="font-playfair italic text-cream/80 text-xs sm:text-sm">
+                                "Jyothika surrounded by her radiant bridesmaids in champagne and olive silks amidst Blairquhan Castle gardens."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 2. Surya & Groomsmen Sunglasses Vanguard -->
+                    <div class="court-card tilt-card gold-border-box p-4 rounded-sm shadow-royal-card group cursor-pointer" data-category="groomsmen" onclick="openRoyalLightbox(1, 'gang')">
+                        <div class="corner-ornament corner-tl"></div>
+                        <div class="corner-ornament corner-tr"></div>
+                        <div class="corner-ornament corner-bl"></div>
+                        <div class="corner-ornament corner-br"></div>
+
+                        <div class="w-full h-80 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
+                            <img src="./sj-gang/2 (2).jpg" alt="The Groomsmen League" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-104 transition-transform duration-500 filter drop-shadow-lg">
+                            <div class="absolute top-3 left-3 z-20 bg-burgundy-dark/90 border border-gold/50 text-gold px-2.5 py-1 rounded text-[11px] font-sans uppercase tracking-widest flex items-center gap-1 shadow">
+                                <i data-lucide="glasses" class="w-3 h-3 text-gold"></i>
+                                <span>Brotherhood</span>
+                            </div>
+                            <div class="absolute bottom-3 right-3 z-20 bg-gold text-burgundy-dark px-2.5 py-1 rounded text-[10px] font-sans font-bold uppercase tracking-wider shadow opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                                <i data-lucide="maximize-2" class="w-3 h-3"></i>
+                                <span>Zoom HD</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 text-center">
+                            <h4 class="font-cinzel text-lg sm:text-xl text-white font-bold text-gold-foil mb-1 group-hover:text-gold-light transition-colors">
+                                The Groomsmen League
+                            </h4>
+                            <p class="font-playfair italic text-cream/80 text-xs sm:text-sm">
+                                "Surya with the gentlemen in sharp bespoke cream tuxedos and sunglasses, commanding Scottish charisma."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 3. Highland March of Honor -->
+                    <div class="court-card tilt-card gold-border-box p-4 rounded-sm shadow-royal-card group cursor-pointer" data-category="groomsmen" onclick="openRoyalLightbox(2, 'gang')">
+                        <div class="corner-ornament corner-tl"></div>
+                        <div class="corner-ornament corner-tr"></div>
+                        <div class="corner-ornament corner-bl"></div>
+                        <div class="corner-ornament corner-br"></div>
+
+                        <div class="w-full h-80 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
+                            <img src="./sj-gang/2 (3).jpg" alt="Highland March of Honor" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-104 transition-transform duration-500 filter drop-shadow-lg">
+                            <div class="absolute top-3 left-3 z-20 bg-burgundy-dark/90 border border-gold/50 text-gold px-2.5 py-1 rounded text-[11px] font-sans uppercase tracking-widest flex items-center gap-1 shadow">
+                                <i data-lucide="shield" class="w-3 h-3 text-gold"></i>
+                                <span>Highland March</span>
+                            </div>
+                            <div class="absolute bottom-3 right-3 z-20 bg-gold text-burgundy-dark px-2.5 py-1 rounded text-[10px] font-sans font-bold uppercase tracking-wider shadow opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                                <i data-lucide="maximize-2" class="w-3 h-3"></i>
+                                <span>Zoom HD</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 text-center">
+                            <h4 class="font-cinzel text-lg sm:text-xl text-white font-bold text-gold-foil mb-1 group-hover:text-gold-light transition-colors">
+                                Highland March of Honor
+                            </h4>
+                            <p class="font-playfair italic text-cream/80 text-xs sm:text-sm">
+                                "A triumphant, stylish stroll across the castle greens with lifelong brothers and companions."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 4. Laughter of the Maidens -->
+                    <div class="court-card tilt-card gold-border-box p-4 rounded-sm shadow-royal-card group cursor-pointer" data-category="bridesmaids" onclick="openRoyalLightbox(3, 'gang')">
+                        <div class="corner-ornament corner-tl"></div>
+                        <div class="corner-ornament corner-tr"></div>
+                        <div class="corner-ornament corner-bl"></div>
+                        <div class="corner-ornament corner-br"></div>
+
+                        <div class="w-full h-80 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
+                            <img src="./sj-gang/2 (4).jpg" alt="Laughter of the Maidens" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-104 transition-transform duration-500 filter drop-shadow-lg">
+                            <div class="absolute top-3 left-3 z-20 bg-burgundy-dark/90 border border-gold/50 text-gold px-2.5 py-1 rounded text-[11px] font-sans uppercase tracking-widest flex items-center gap-1 shadow">
+                                <i data-lucide="heart" class="w-3 h-3 text-gold"></i>
+                                <span>Pure Joy</span>
+                            </div>
+                            <div class="absolute bottom-3 right-3 z-20 bg-gold text-burgundy-dark px-2.5 py-1 rounded text-[10px] font-sans font-bold uppercase tracking-wider shadow opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                                <i data-lucide="maximize-2" class="w-3 h-3"></i>
+                                <span>Zoom HD</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 text-center">
+                            <h4 class="font-cinzel text-lg sm:text-xl text-white font-bold text-gold-foil mb-1 group-hover:text-gold-light transition-colors">
+                                Laughter of the Maidens
+                            </h4>
+                            <p class="font-playfair italic text-cream/80 text-xs sm:text-sm">
+                                "Heartfelt smiles, playful poses, and radiant happiness shared in the Scottish estate grounds."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 5. The Grand Castle Gathering -->
+                    <div class="court-card tilt-card gold-border-box p-4 rounded-sm shadow-royal-card group cursor-pointer" data-category="assembly" onclick="openRoyalLightbox(4, 'gang')">
+                        <div class="corner-ornament corner-tl"></div>
+                        <div class="corner-ornament corner-tr"></div>
+                        <div class="corner-ornament corner-bl"></div>
+                        <div class="corner-ornament corner-br"></div>
+
+                        <div class="w-full h-80 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
+                            <img src="./sj-gang/2 (5).jpg" alt="The Grand Castle Gathering" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-104 transition-transform duration-500 filter drop-shadow-lg">
+                            <div class="absolute top-3 left-3 z-20 bg-burgundy-dark/90 border border-gold/50 text-gold px-2.5 py-1 rounded text-[11px] font-sans uppercase tracking-widest flex items-center gap-1 shadow">
+                                <i data-lucide="landmark" class="w-3 h-3 text-gold"></i>
+                                <span>Castle Assembly</span>
+                            </div>
+                            <div class="absolute bottom-3 right-3 z-20 bg-gold text-burgundy-dark px-2.5 py-1 rounded text-[10px] font-sans font-bold uppercase tracking-wider shadow opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                                <i data-lucide="maximize-2" class="w-3 h-3"></i>
+                                <span>Zoom HD</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 text-center">
+                            <h4 class="font-cinzel text-lg sm:text-xl text-white font-bold text-gold-foil mb-1 group-hover:text-gold-light transition-colors">
+                                The Grand Castle Gathering
+                            </h4>
+                            <p class="font-playfair italic text-cream/80 text-xs sm:text-sm">
+                                "A timeless gathering inside Blairquhan Castle's grand salon with all cherished friends and family."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 6. United in Joy & Fellowship -->
+                    <div class="court-card tilt-card gold-border-box p-4 rounded-sm shadow-royal-card group cursor-pointer" data-category="assembly" onclick="openRoyalLightbox(5, 'gang')">
+                        <div class="corner-ornament corner-tl"></div>
+                        <div class="corner-ornament corner-tr"></div>
+                        <div class="corner-ornament corner-bl"></div>
+                        <div class="corner-ornament corner-br"></div>
+
+                        <div class="w-full h-80 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
+                            <img src="./sj-gang/2 (6).jpg" alt="United in Joy &amp; Fellowship" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-104 transition-transform duration-500 filter drop-shadow-lg">
+                            <div class="absolute top-3 left-3 z-20 bg-burgundy-dark/90 border border-gold/50 text-gold px-2.5 py-1 rounded text-[11px] font-sans uppercase tracking-widest flex items-center gap-1 shadow">
+                                <i data-lucide="sparkles" class="w-3 h-3 text-gold"></i>
+                                <span>Celebration</span>
+                            </div>
+                            <div class="absolute bottom-3 right-3 z-20 bg-gold text-burgundy-dark px-2.5 py-1 rounded text-[10px] font-sans font-bold uppercase tracking-wider shadow opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                                <i data-lucide="maximize-2" class="w-3 h-3"></i>
+                                <span>Zoom HD</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 text-center">
+                            <h4 class="font-cinzel text-lg sm:text-xl text-white font-bold text-gold-foil mb-1 group-hover:text-gold-light transition-colors">
+                                United in Joy &amp; Fellowship
+                            </h4>
+                            <p class="font-playfair italic text-cream/80 text-xs sm:text-sm">
+                                "Surya &amp; Jyothika hand-in-hand, surrounded by the laughter, cheers, and blessings of their closest inner circle."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 7. Scottish Stone Brotherhood -->
+                    <div class="court-card tilt-card gold-border-box p-4 rounded-sm shadow-royal-card group cursor-pointer" data-category="groomsmen" onclick="openRoyalLightbox(6, 'gang')">
+                        <div class="corner-ornament corner-tl"></div>
+                        <div class="corner-ornament corner-tr"></div>
+                        <div class="corner-ornament corner-bl"></div>
+                        <div class="corner-ornament corner-br"></div>
+
+                        <div class="w-full h-80 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
+                            <img src="./sj-gang/2 (7).jpg" alt="Scottish Stone Brotherhood" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-104 transition-transform duration-500 filter drop-shadow-lg">
+                            <div class="absolute top-3 left-3 z-20 bg-burgundy-dark/90 border border-gold/50 text-gold px-2.5 py-1 rounded text-[11px] font-sans uppercase tracking-widest flex items-center gap-1 shadow">
+                                <i data-lucide="shield-check" class="w-3 h-3 text-gold"></i>
+                                <span>Stone Heritage</span>
+                            </div>
+                            <div class="absolute bottom-3 right-3 z-20 bg-gold text-burgundy-dark px-2.5 py-1 rounded text-[10px] font-sans font-bold uppercase tracking-wider shadow opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                                <i data-lucide="maximize-2" class="w-3 h-3"></i>
+                                <span>Zoom HD</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 text-center">
+                            <h4 class="font-cinzel text-lg sm:text-xl text-white font-bold text-gold-foil mb-1 group-hover:text-gold-light transition-colors">
+                                Scottish Stone Brotherhood
+                            </h4>
+                            <p class="font-playfair italic text-cream/80 text-xs sm:text-sm">
+                                "Posing against the centuries-old Scottish castle stonework in camaraderie and style."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 8. The Grand Staircase Symphony -->
+                    <div class="court-card tilt-card gold-border-box p-4 rounded-sm shadow-royal-card group cursor-pointer" data-category="bridesmaids" onclick="openRoyalLightbox(7, 'gang')">
+                        <div class="corner-ornament corner-tl"></div>
+                        <div class="corner-ornament corner-tr"></div>
+                        <div class="corner-ornament corner-bl"></div>
+                        <div class="corner-ornament corner-br"></div>
+
+                        <div class="w-full h-80 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
+                            <img src="./sj-gang/2 (8).jpg" alt="The Grand Staircase Symphony" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-104 transition-transform duration-500 filter drop-shadow-lg">
+                            <div class="absolute top-3 left-3 z-20 bg-burgundy-dark/90 border border-gold/50 text-gold px-2.5 py-1 rounded text-[11px] font-sans uppercase tracking-widest flex items-center gap-1 shadow">
+                                <i data-lucide="flower-2" class="w-3 h-3 text-gold"></i>
+                                <span>Staircase Symphony</span>
+                            </div>
+                            <div class="absolute bottom-3 right-3 z-20 bg-gold text-burgundy-dark px-2.5 py-1 rounded text-[10px] font-sans font-bold uppercase tracking-wider shadow opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                                <i data-lucide="maximize-2" class="w-3 h-3"></i>
+                                <span>Zoom HD</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 text-center">
+                            <h4 class="font-cinzel text-lg sm:text-xl text-white font-bold text-gold-foil mb-1 group-hover:text-gold-light transition-colors">
+                                The Grand Staircase Symphony
+                            </h4>
+                            <p class="font-playfair italic text-cream/80 text-xs sm:text-sm">
+                                "An unforgettable, breathtaking composition upon the Blairquhan Castle wooden staircase with the bridal court."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 9. Cheers to 20 Golden Years -->
+                    <div class="court-card tilt-card gold-border-box p-4 rounded-sm shadow-royal-card group cursor-pointer" data-category="groomsmen" onclick="openRoyalLightbox(8, 'gang')">
+                        <div class="corner-ornament corner-tl"></div>
+                        <div class="corner-ornament corner-tr"></div>
+                        <div class="corner-ornament corner-bl"></div>
+                        <div class="corner-ornament corner-br"></div>
+
+                        <div class="w-full h-80 rounded-sm overflow-hidden border border-gold/30 relative card-img-holder flex items-center justify-center">
+                            <img src="./sj-gang/2 (9).jpg" alt="Cheers to 20 Golden Years" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-104 transition-transform duration-500 filter drop-shadow-lg">
+                            <div class="absolute top-3 left-3 z-20 bg-burgundy-dark/90 border border-gold/50 text-gold px-2.5 py-1 rounded text-[11px] font-sans uppercase tracking-widest flex items-center gap-1 shadow">
+                                <i data-lucide="wine" class="w-3 h-3 text-gold"></i>
+                                <span>Highland Cheers</span>
+                            </div>
+                            <div class="absolute bottom-3 right-3 z-20 bg-gold text-burgundy-dark px-2.5 py-1 rounded text-[10px] font-sans font-bold uppercase tracking-wider shadow opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                                <i data-lucide="maximize-2" class="w-3 h-3"></i>
+                                <span>Zoom HD</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 text-center">
+                            <h4 class="font-cinzel text-lg sm:text-xl text-white font-bold text-gold-foil mb-1 group-hover:text-gold-light transition-colors">
+                                Cheers to 20 Golden Years
+                            </h4>
+                            <p class="font-playfair italic text-cream/80 text-xs sm:text-sm">
+                                "Pure celebration, brotherhood, and joy that echoes throughout the Scottish Highlands."
+                            </p>
                         </div>
                     </div>
 
@@ -1647,18 +1945,26 @@
     </main>
 
     <!-- ==========================================
-         FLOATING AUDIO CONTROLLER (CELTIC HARP & CHURCH STRINGS)
+         AUDIO ELEMENT & FLOATING CONTROLLER (music.mpeg)
          ========================================== -->
+    <audio id="bg-soundtrack" src="./music.mpeg" loop preload="auto"></audio>
+
     <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
-        <div id="audio-tooltip" class="hidden md:block bg-burgundy-dark/95 border border-gold/50 text-gold text-xs px-3 py-1.5 rounded shadow-lg backdrop-blur font-sans tracking-wider">
-            Scottish Celtic &amp; Cathedral Melodies
+        <div id="audio-tooltip-box" class="hidden sm:flex items-center gap-2 bg-burgundy-dark/95 border border-gold/60 text-gold text-xs px-3.5 py-2 rounded-full shadow-gold-glow backdrop-blur font-sans">
+            <span id="audio-tooltip-text" class="tracking-wider font-medium">Jubilee Soundtrack</span>
+            <div id="audio-soundwave" class="flex items-center gap-0.5 h-3">
+                <span class="w-0.5 h-full bg-gold animate-pulse"></span>
+                <span class="w-0.5 h-2/3 bg-gold animate-ping"></span>
+                <span class="w-0.5 h-full bg-gold animate-pulse"></span>
+                <span class="w-0.5 h-1/2 bg-gold"></span>
+            </div>
         </div>
 
         <button 
             id="audio-toggle-btn" 
             onclick="toggleRoyalAudio()" 
             class="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-gold-dark via-gold to-gold-light text-burgundy-dark flex items-center justify-center shadow-gold-glow-lg hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white cursor-pointer group"
-            title="Toggle Royal Scottish Castle Audio"
+            title="Toggle Royal Jubilee Music (music.mpeg)"
         >
             <div id="audio-disc" class="absolute inset-1 rounded-full border border-burgundy-dark/40 flex items-center justify-center audio-disc-spin audio-disc-paused pointer-events-none">
                 <div class="w-4 h-4 rounded-full bg-burgundy-dark flex items-center justify-center">
@@ -1677,155 +1983,74 @@
         lucide.createIcons();
 
         /* ==========================================================================
-           1. PROCEDURAL CELTIC & CATHEDRAL AUDIO ENGINE (Web Audio API)
+           1. ROYAL AUDIO CONTROLLER (music.mpeg Soundtrack Player)
            ========================================================================== */
-        class RoyalCelticAudioEngine {
+        class RoyalMusicPlayer {
             constructor() {
-                this.ctx = null;
+                this.audio = document.getElementById('bg-soundtrack');
                 this.isPlaying = false;
-                this.timer = null;
-                this.masterGain = null;
-                this.reverbNode = null;
-                this.scale = [220.00, 246.94, 277.18, 329.63, 369.99, 440.00, 493.88, 554.37, 659.25, 739.99];
             }
 
-            init() {
-                if (this.ctx) return;
-                const AudioCtx = window.AudioContext || window.webkitAudioContext;
-                this.ctx = new AudioCtx();
-
-                this.masterGain = this.ctx.createGain();
-                this.masterGain.gain.setValueAtTime(0.3, this.ctx.currentTime);
-                this.masterGain.connect(this.ctx.destination);
-
-                const delay = this.ctx.createDelay();
-                delay.delayTime.value = 0.38;
-                const feedback = this.ctx.createGain();
-                feedback.gain.value = 0.45;
-                const delayFilter = this.ctx.createBiquadFilter();
-                delayFilter.frequency.value = 1800;
-
-                delay.connect(feedback);
-                feedback.connect(delayFilter);
-                delayFilter.connect(delay);
-                delayFilter.connect(this.masterGain);
-                this.reverbNode = delay;
-            }
-
-            playHarpPluck(freq, time, duration = 2.5, velocity = 0.25) {
-                if (!this.ctx) return;
-                const osc = this.ctx.createOscillator();
-                const gain = this.ctx.createGain();
-                const filter = this.ctx.createBiquadFilter();
-
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(freq, time);
-
-                filter.type = 'lowpass';
-                filter.frequency.setValueAtTime(freq * 3.5, time);
-                filter.frequency.exponentialRampToValueAtTime(freq * 0.8, time + duration);
-
-                gain.gain.setValueAtTime(0.001, time);
-                gain.gain.linearRampToValueAtTime(velocity, time + 0.02);
-                gain.gain.exponentialRampToValueAtTime(0.0001, time + duration);
-
-                osc.connect(filter);
-                filter.connect(gain);
-                gain.connect(this.masterGain);
-                if (this.reverbNode) gain.connect(this.reverbNode);
-
-                osc.start(time);
-                osc.stop(time + duration);
-            }
-
-            playChurchOrganDrone(rootFreq = 110) {
-                if (!this.ctx) return;
-                const osc = this.ctx.createOscillator();
-                const gain = this.ctx.createGain();
-                osc.type = 'sawtooth';
-                osc.frequency.setValueAtTime(rootFreq, this.ctx.currentTime);
-
-                const filter = this.ctx.createBiquadFilter();
-                filter.type = 'lowpass';
-                filter.frequency.setValueAtTime(280, this.ctx.currentTime);
-
-                gain.gain.setValueAtTime(0.001, this.ctx.currentTime);
-                gain.gain.linearRampToValueAtTime(0.08, this.ctx.currentTime + 3);
-
-                osc.connect(filter);
-                filter.connect(gain);
-                gain.connect(this.masterGain);
-
-                osc.start();
-                this.droneOsc = osc;
-                this.droneGain = gain;
-            }
-
-            start() {
-                this.init();
-                if (this.ctx.state === 'suspended') {
-                    this.ctx.resume();
+            play() {
+                if (!this.audio) return;
+                this.audio.volume = 0.8;
+                const promise = this.audio.play();
+                if (promise !== undefined) {
+                    promise.then(() => {
+                        this.isPlaying = true;
+                        this.updateUI(true);
+                    }).catch(err => {
+                        console.log("Audio autoplay prevented by browser policy, will play on interaction:", err);
+                    });
                 }
-                this.isPlaying = true;
-                this.playChurchOrganDrone(110);
-
-                let step = 0;
-                const arpPattern = [0, 2, 4, 7, 5, 3, 2, 4, 6, 8, 7, 5, 4, 2, 1, 0];
-
-                const scheduleLoop = () => {
-                    if (!this.isPlaying) return;
-                    const now = this.ctx.currentTime;
-                    const noteIdx = arpPattern[step % arpPattern.length];
-                    const freq = this.scale[noteIdx % this.scale.length];
-                    
-                    this.playHarpPluck(freq, now, 2.2, 0.22);
-
-                    if (step % 4 === 0) {
-                        const bassFreq = this.scale[0] * 0.5;
-                        this.playHarpPluck(bassFreq, now, 3.5, 0.28);
-                    }
-
-                    step++;
-                    this.timer = setTimeout(scheduleLoop, 380);
-                };
-
-                scheduleLoop();
             }
 
-            stop() {
+            pause() {
+                if (!this.audio) return;
+                this.audio.pause();
                 this.isPlaying = false;
-                if (this.timer) clearTimeout(this.timer);
-                if (this.droneGain && this.ctx) {
-                    this.droneGain.gain.linearRampToValueAtTime(0.0001, this.ctx.currentTime + 1);
-                    setTimeout(() => {
-                        if (this.droneOsc) this.droneOsc.stop();
-                    }, 1000);
+                this.updateUI(false);
+            }
+
+            toggle() {
+                if (this.isPlaying) {
+                    this.pause();
+                } else {
+                    this.play();
                 }
+            }
+
+            updateUI(playing) {
+                const disc = document.getElementById('audio-disc');
+                const icon = document.getElementById('audio-icon');
+                const tooltipText = document.getElementById('audio-tooltip-text');
+                const soundwave = document.getElementById('audio-soundwave');
+
+                if (playing) {
+                    if (disc) disc.classList.remove('audio-disc-paused');
+                    if (icon) icon.setAttribute('data-lucide', 'volume-2');
+                    if (tooltipText) tooltipText.innerText = "Playing: Surya & Jyothika 🎵";
+                    if (soundwave) soundwave.classList.remove('opacity-30');
+                } else {
+                    if (disc) disc.classList.add('audio-disc-paused');
+                    if (icon) icon.setAttribute('data-lucide', 'volume-x');
+                    if (tooltipText) tooltipText.innerText = "Music Paused (Click to Play)";
+                    if (soundwave) soundwave.classList.add('opacity-30');
+                }
+                if (window.lucide) lucide.createIcons();
             }
         }
 
-        const royalAudio = new RoyalCelticAudioEngine();
+        const royalAudio = new RoyalMusicPlayer();
         let isAudioActive = false;
 
         function toggleRoyalAudio() {
-            const disc = document.getElementById('audio-disc');
-            const icon = document.getElementById('audio-icon');
-            const tooltip = document.getElementById('audio-tooltip');
-
             isAudioActive = !isAudioActive;
-
             if (isAudioActive) {
-                royalAudio.start();
-                disc.classList.remove('audio-disc-paused');
-                icon.setAttribute('data-lucide', 'volume-2');
-                if (tooltip) tooltip.innerText = "Playing Scottish Romance";
+                royalAudio.play();
             } else {
-                royalAudio.stop();
-                disc.classList.add('audio-disc-paused');
-                icon.setAttribute('data-lucide', 'volume-x');
-                if (tooltip) tooltip.innerText = "Audio Muted";
+                royalAudio.pause();
             }
-            lucide.createIcons();
         }
 
 
@@ -1833,9 +2058,8 @@
            2. 3D CURTAIN REVEAL CONTROLLER (GSAP)
            ========================================================================== */
         function openRoyalInvitation() {
-            if (!isAudioActive) {
-                toggleRoyalAudio();
-            }
+            royalAudio.play();
+            isAudioActive = true;
 
             const curtainWrapper = document.getElementById('curtain-wrapper');
             const curtainLeft = document.getElementById('curtain-left');
@@ -1897,7 +2121,7 @@
                 this.mouseY = 0;
                 this.targetMouseX = 0;
                 this.targetMouseY = 0;
-                this.count = 14;
+                this.count = 8;
 
                 this.init();
             }
@@ -1910,12 +2134,13 @@
                 this.renderer = new THREE.WebGLRenderer({
                     canvas: this.canvas,
                     alpha: true,
-                    antialias: true
+                    antialias: true,
+                    powerPreference: "high-performance"
                 });
                 this.renderer.setSize(window.innerWidth, window.innerHeight);
-                this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
 
-                const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
                 this.scene.add(ambientLight);
 
                 const goldPointLight = new THREE.PointLight(0xD4AF37, 2, 200);
@@ -1924,8 +2149,8 @@
 
                 this.createButterflies();
 
-                window.addEventListener('resize', () => this.onResize());
-                window.addEventListener('mousemove', (e) => this.onMouseMove(e));
+                window.addEventListener('resize', () => this.onResize(), { passive: true });
+                window.addEventListener('mousemove', (e) => this.onMouseMove(e), { passive: true });
                 window.addEventListener('touchmove', (e) => {
                     if (e.touches.length > 0) {
                         this.targetMouseX = (e.touches[0].clientX / window.innerWidth) * 2 - 1;
@@ -1956,10 +2181,10 @@
                         color: wingColor,
                         emissive: isEmerald ? 0x0F3020 : 0x7A5E12,
                         specular: 0xFFF0B8,
-                        shininess: 90,
+                        shininess: 80,
                         side: THREE.DoubleSide,
                         transparent: true,
-                        opacity: 0.92,
+                        opacity: 0.9,
                     });
 
                     const leftWing = new THREE.Mesh(wingGeo, wingMaterial);
@@ -1971,9 +2196,9 @@
                     rightWing.rotation.y = Math.PI;
                     group.add(rightWing);
 
-                    const spreadX = 90;
-                    const spreadY = 60;
-                    const spreadZ = 50;
+                    const spreadX = 80;
+                    const spreadY = 50;
+                    const spreadZ = 40;
 
                     group.position.set(
                         (Math.random() - 0.5) * spreadX,
@@ -1989,9 +2214,9 @@
                         rightWing: rightWing,
                         basePos: group.position.clone(),
                         velocity: new THREE.Vector3(
-                            (Math.random() - 0.5) * 0.3,
-                            (Math.random() - 0.5) * 0.3,
-                            (Math.random() - 0.5) * 0.2
+                            (Math.random() - 0.5) * 0.25,
+                            (Math.random() - 0.5) * 0.25,
+                            (Math.random() - 0.5) * 0.15
                         ),
                         wingFlapSpeed: 10 + Math.random() * 8,
                         flapPhase: Math.random() * Math.PI * 2,
@@ -2028,17 +2253,17 @@
                     b.rightWing.rotation.y = Math.PI - flap * 0.95;
 
                     b.wanderAngle += (Math.random() - 0.5) * 0.1;
-                    b.velocity.x += Math.cos(b.wanderAngle) * 0.02;
-                    b.velocity.y += (Math.sin(time * 2 + idx) * 0.04) + 0.01;
-                    b.velocity.z += Math.sin(b.wanderAngle) * 0.01;
+                    b.velocity.x += Math.cos(b.wanderAngle) * 0.015;
+                    b.velocity.y += (Math.sin(time * 2 + idx) * 0.03) + 0.008;
+                    b.velocity.z += Math.sin(b.wanderAngle) * 0.008;
 
                     const dx = b.group.position.x - mouseWorldX;
                     const dy = b.group.position.y - mouseWorldY;
                     const distSq = dx * dx + dy * dy;
 
-                    if (distSq < 750) {
+                    if (distSq < 600) {
                         const dist = Math.sqrt(distSq) || 1;
-                        const force = (1 - dist / 30) * 0.6;
+                        const force = (1 - dist / 25) * 0.5;
                         b.velocity.x += (dx / dist) * force;
                         b.velocity.y += (dy / dist) * force;
                     }
@@ -2072,26 +2297,26 @@
                 this.canvas = document.getElementById('particles-2d-canvas');
                 this.ctx = this.canvas.getContext('2d');
                 this.particles = [];
-                this.numParticles = 45;
+                this.numParticles = 22;
                 this.mouseX = 0;
                 this.mouseY = 0;
                 this.prevMouseX = 0;
                 this.mouseVelocityX = 0;
-                this.wind = 0.5;
+                this.wind = 0.4;
 
                 this.init();
             }
 
             init() {
                 this.resize();
-                window.addEventListener('resize', () => this.resize());
+                window.addEventListener('resize', () => this.resize(), { passive: true });
 
                 window.addEventListener('mousemove', (e) => {
-                    this.mouseVelocityX = (e.clientX - this.prevMouseX) * 0.08;
+                    this.mouseVelocityX = (e.clientX - this.prevMouseX) * 0.05;
                     this.prevMouseX = e.clientX;
                     this.mouseX = e.clientX;
                     this.mouseY = e.clientY;
-                });
+                }, { passive: true });
 
                 const petalTypes = [
                     { type: 'rose', color: 'rgba(163, 24, 45, 0.75)' },
@@ -2105,14 +2330,14 @@
                     this.particles.push({
                         x: Math.random() * this.width,
                         y: Math.random() * this.height,
-                        size: 8 + Math.random() * 14,
+                        size: 8 + Math.random() * 12,
                         type: chosen.type,
                         color: chosen.color,
-                        speedY: 0.8 + Math.random() * 1.6,
-                        speedX: (Math.random() - 0.5) * 0.8,
+                        speedY: 0.7 + Math.random() * 1.4,
+                        speedX: (Math.random() - 0.5) * 0.6,
                         rotation: Math.random() * Math.PI * 2,
-                        rotationSpeed: (Math.random() - 0.5) * 0.03,
-                        flipSpeed: 0.02 + Math.random() * 0.04,
+                        rotationSpeed: (Math.random() - 0.5) * 0.025,
+                        flipSpeed: 0.02 + Math.random() * 0.03,
                         flip: 0,
                         oscillationOffset: Math.random() * Math.PI * 2,
                         opacity: 0.4 + Math.random() * 0.5
@@ -2362,7 +2587,7 @@
         }
 
         /* ==========================================================================
-           7. CHERISHED MEMORIES SPOTLIGHT CAROUSEL & ROYAL LIGHTBOX ENGINE
+           7. CHERISHED MEMORIES & ROYAL COURT DATASETS & LIGHTBOX ENGINE
            ========================================================================== */
         const memoriesData = [
             {
@@ -2445,6 +2670,72 @@
             }
         ];
 
+        const gangMemoriesData = [
+            {
+                img: "./sj-gang/2 (1).jpg",
+                category: "bridesmaids",
+                tag: "Bridal Court",
+                title: "The Radiant Bridal Court",
+                desc: "Jyothika surrounded by her radiant bridesmaids in champagne and olive silks amidst Blairquhan Castle gardens."
+            },
+            {
+                img: "./sj-gang/2 (2).jpg",
+                category: "groomsmen",
+                tag: "Groomsmen Brotherhood",
+                title: "The Groomsmen League",
+                desc: "Surya with the gentlemen in sharp bespoke cream tuxedos and sunglasses, commanding Scottish charisma."
+            },
+            {
+                img: "./sj-gang/2 (3).jpg",
+                category: "groomsmen",
+                tag: "Highland March",
+                title: "Highland March of Honor",
+                desc: "A triumphant, stylish stroll across the castle greens with lifelong brothers and companions."
+            },
+            {
+                img: "./sj-gang/2 (4).jpg",
+                category: "bridesmaids",
+                tag: "Pure Joy",
+                title: "Laughter of the Maidens",
+                desc: "Heartfelt smiles, playful poses, and radiant happiness shared in the Scottish estate grounds."
+            },
+            {
+                img: "./sj-gang/2 (5).jpg",
+                category: "assembly",
+                tag: "Castle Assembly",
+                title: "The Grand Castle Gathering",
+                desc: "A timeless gathering inside Blairquhan Castle's grand salon with all cherished friends and family."
+            },
+            {
+                img: "./sj-gang/2 (6).jpg",
+                category: "assembly",
+                tag: "Celebration",
+                title: "United in Joy & Fellowship",
+                desc: "Surya & Jyothika hand-in-hand, surrounded by the laughter, cheers, and blessings of their closest inner circle."
+            },
+            {
+                img: "./sj-gang/2 (7).jpg",
+                category: "groomsmen",
+                tag: "Stone Heritage",
+                title: "Scottish Stone Brotherhood",
+                desc: "Posing against the centuries-old Scottish castle stonework in camaraderie and style."
+            },
+            {
+                img: "./sj-gang/2 (8).jpg",
+                category: "bridesmaids",
+                tag: "Staircase Symphony",
+                title: "The Grand Staircase Symphony",
+                desc: "An unforgettable, breathtaking composition upon the Blairquhan Castle wooden staircase with the bridal court."
+            },
+            {
+                img: "./sj-gang/2 (9).jpg",
+                category: "groomsmen",
+                tag: "Highland Cheers",
+                title: "Cheers to 20 Golden Years",
+                desc: "Pure celebration, brotherhood, and joy that echoes throughout the Scottish Highlands."
+            }
+        ];
+
         let currentMemoryIndex = 0;
         let isAutoplayActive = true;
         let autoplayInterval = null;
@@ -2473,7 +2764,7 @@
             `).join('');
         }
 
-        function updateStageMemory(index, animate = true) {
+        function updateStageMemory(index, animate = true, direction = 1) {
             currentMemoryIndex = (index + memoriesData.length) % memoriesData.length;
             const data = memoriesData[currentMemoryIndex];
 
@@ -2488,22 +2779,24 @@
             if (bgImg) bgImg.src = data.img;
 
             if (animate && img) {
+                const outX = direction >= 0 ? -28 : 28;
+                const inX = direction >= 0 ? 28 : -28;
+
                 gsap.to(img, {
-                    opacity: 0.3,
+                    opacity: 0,
+                    x: outX,
                     scale: 0.96,
-                    duration: 0.25,
-                    ease: "power2.inOut",
+                    duration: 0.22,
+                    ease: "power2.in",
                     onComplete: () => {
                         img.src = data.img;
                         if (tag) tag.innerText = data.tag;
                         if (title) title.innerText = data.title;
                         if (desc) desc.innerText = `"${data.desc}"`;
-                        gsap.to(img, {
-                            opacity: 1,
-                            scale: 1,
-                            duration: 0.45,
-                            ease: "power2.out"
-                        });
+                        gsap.fromTo(img, 
+                            { opacity: 0, x: inX, scale: 0.96 },
+                            { opacity: 1, x: 0, scale: 1, duration: 0.38, ease: "power2.out" }
+                        );
                     }
                 });
             } else if (img) {
@@ -2532,17 +2825,18 @@
         }
 
         function nextMemory() {
-            updateStageMemory(currentMemoryIndex + 1);
+            updateStageMemory(currentMemoryIndex + 1, true, 1);
             resetAutoplay();
         }
 
         function prevMemory() {
-            updateStageMemory(currentMemoryIndex - 1);
+            updateStageMemory(currentMemoryIndex - 1, true, -1);
             resetAutoplay();
         }
 
         function goToMemory(index) {
-            updateStageMemory(index);
+            const dir = index >= currentMemoryIndex ? 1 : -1;
+            updateStageMemory(index, true, dir);
             resetAutoplay();
         }
 
@@ -2595,11 +2889,48 @@
             lucide.createIcons();
         }
 
-        /* Fullscreen Lightbox Controller */
-        let currentLightboxIndex = 0;
+        /* Royal Court Moments Filter */
+        function filterCourtMoments(category, btnElement) {
+            const buttons = document.querySelectorAll('.court-filter-btn');
+            buttons.forEach(btn => {
+                btn.className = "court-filter-btn px-5 py-2 rounded-full border border-gold/40 bg-burgundy/60 text-gold hover:bg-gold/20 font-sans text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer";
+            });
+            if (btnElement) {
+                btnElement.className = "court-filter-btn px-5 py-2 rounded-full border border-gold bg-gold text-burgundy-dark font-sans text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-gold-glow cursor-pointer";
+            }
 
-        function openRoyalLightbox(index) {
-            currentLightboxIndex = (index + memoriesData.length) % memoriesData.length;
+            const cards = document.querySelectorAll('.court-card');
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'all' || cardCat === category) {
+                    gsap.to(card, {
+                        opacity: 1,
+                        scale: 1,
+                        duration: 0.35,
+                        ease: "power2.out",
+                        onStart: () => { card.style.display = 'block'; }
+                    });
+                } else {
+                    gsap.to(card, {
+                        opacity: 0,
+                        scale: 0.92,
+                        duration: 0.25,
+                        ease: "power2.in",
+                        onComplete: () => { card.style.display = 'none'; }
+                    });
+                }
+            });
+        }
+
+        /* Fullscreen Royal Lightbox Controller (Supports both Couple & Gang Photo Sets) */
+        let currentLightboxIndex = 0;
+        let currentLightboxType = 'couple';
+
+        function openRoyalLightbox(index, datasetType = 'couple') {
+            currentLightboxType = datasetType;
+            const dataset = currentLightboxType === 'gang' ? gangMemoriesData : memoriesData;
+            currentLightboxIndex = (index + dataset.length) % dataset.length;
+
             const modal = document.getElementById('royal-lightbox');
             updateLightboxContent();
 
@@ -2621,7 +2952,8 @@
         }
 
         function updateLightboxContent() {
-            const data = memoriesData[currentLightboxIndex];
+            const dataset = currentLightboxType === 'gang' ? gangMemoriesData : memoriesData;
+            const data = dataset[currentLightboxIndex];
             const img = document.getElementById('lightbox-img');
             const tag = document.getElementById('lightbox-tag');
             const title = document.getElementById('lightbox-title');
@@ -2629,25 +2961,27 @@
             const counter = document.getElementById('lightbox-counter');
 
             if (img) {
-                img.style.opacity = '0.4';
+                img.style.opacity = '0.3';
                 setTimeout(() => {
                     img.src = data.img;
                     img.style.opacity = '1';
-                }, 150);
+                }, 120);
             }
             if (tag) tag.innerText = data.tag;
             if (title) title.innerText = data.title;
             if (desc) desc.innerText = `"${data.desc}"`;
-            if (counter) counter.innerText = `Photo ${String(currentLightboxIndex + 1).padStart(2, '0')} of ${String(memoriesData.length).padStart(2, '0')}`;
+            if (counter) counter.innerText = `${currentLightboxType === 'gang' ? 'Court' : 'Photo'} ${String(currentLightboxIndex + 1).padStart(2, '0')} of ${String(dataset.length).padStart(2, '0')}`;
         }
 
         function nextLightboxMemory() {
-            currentLightboxIndex = (currentLightboxIndex + 1) % memoriesData.length;
+            const dataset = currentLightboxType === 'gang' ? gangMemoriesData : memoriesData;
+            currentLightboxIndex = (currentLightboxIndex + 1) % dataset.length;
             updateLightboxContent();
         }
 
         function prevLightboxMemory() {
-            currentLightboxIndex = (currentLightboxIndex - 1 + memoriesData.length) % memoriesData.length;
+            const dataset = currentLightboxType === 'gang' ? gangMemoriesData : memoriesData;
+            currentLightboxIndex = (currentLightboxIndex - 1 + dataset.length) % dataset.length;
             updateLightboxContent();
         }
 
