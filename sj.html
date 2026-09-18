@@ -1,0 +1,2731 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Surya &amp; Jyothika — 20 Years of Holy Matrimony &amp; Royal Jubilee | Blairquhan Castle, Scotland</title>
+    <meta name="description" content="You are cordially invited to celebrate the 20th Wedding Anniversary &amp; Holy Vow Renewal of Surya &amp; Jyothika at Blairquhan Castle, Maybole, Ayrshire, Scotland.">
+    
+    <!-- Open Graph & Meta -->
+    <meta property="og:title" content="Surya &amp; Jyothika — 20 Years of Holy Matrimony, Love &amp; War">
+    <meta property="og:description" content="Royal Scottish Castle Holy Vow Renewal &amp; 20th Anniversary Celebration at Blairquhan Castle, Scotland">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind CSS (v3 CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        burgundy: {
+                            DEFAULT: '#3B0B13',
+                            deep: '#26060B',
+                            dark: '#1C0407',
+                            light: '#54121D'
+                        },
+                        ruby: {
+                            DEFAULT: '#5A101E',
+                            velvet: '#450B16',
+                            glow: '#7D1A2C'
+                        },
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            foil: '#E6C65A',
+                            light: '#F5E19A',
+                            dark: '#997B1E',
+                            champagne: '#ECC86C',
+                            antique: '#B38F2A'
+                        },
+                        emerald: {
+                            mist: '#1B3B2B',
+                            deep: '#0F2319',
+                            leaf: '#2A5A42'
+                        },
+                        cream: {
+                            DEFAULT: '#FFF8E7',
+                            soft: '#FAF0D7',
+                            ivory: '#FFFBF2'
+                        },
+                        charcoal: '#120F10'
+                    },
+                    fontFamily: {
+                        cinzel: ['"Cinzel Decorative"', 'serif'],
+                        playfair: ['"Playfair Display"', 'serif'],
+                        cursive: ['"Great Vibes"', 'cursive'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gold-gradient': 'linear-gradient(135deg, #F5E19A 0%, #D4AF37 50%, #997B1E 100%)',
+                        'royal-gradient': 'linear-gradient(180deg, #1C0407 0%, #3B0B13 40%, #26060B 100%)',
+                        'velvet-gradient': 'radial-gradient(circle at 50% 30%, #5A101E 0%, #3B0B13 60%, #1A0408 100%)',
+                    },
+                    boxShadow: {
+                        'gold-glow': '0 0 25px rgba(212, 175, 55, 0.45)',
+                        'gold-glow-lg': '0 0 45px rgba(212, 175, 55, 0.65)',
+                        'royal-card': '0 20px 50px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(212, 175, 55, 0.3)',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'shimmer': 'shimmer 3s linear infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- GSAP & Three.js Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --color-gold: #D4AF37;
+            --color-burgundy: #3B0B13;
+            --color-cream: #FFF8E7;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #1A0408;
+            color: #FFF8E7;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+
+        /* Gold Foil Text Shimmer */
+        .text-gold-foil {
+            background: linear-gradient(135deg, #FFF0B8 0%, #D4AF37 40%, #F5E19A 60%, #997B1E 80%, #ECC86C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .gold-border-box {
+            position: relative;
+            background: rgba(28, 4, 7, 0.85);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.08), 0 15px 35px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(12px);
+        }
+
+        .gold-border-box::before {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            pointer-events: none;
+        }
+
+        /* Ornate Corner Accents */
+        .corner-ornament {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-color: #D4AF37;
+            pointer-events: none;
+        }
+        .corner-tl { top: 6px; left: 6px; border-top: 2px solid; border-left: 2px solid; }
+        .corner-tr { top: 6px; right: 6px; border-top: 2px solid; border-right: 2px solid; }
+        .corner-bl { bottom: 6px; left: 6px; border-bottom: 2px solid; border-left: 2px solid; }
+        .corner-br { bottom: 6px; right: 6px; border-bottom: 2px solid; border-right: 2px solid; }
+
+        /* Scottish Damask Pattern */
+        .bg-royal-damask {
+            background-color: #24050B;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 1px, transparent 1px),
+                radial-gradient(circle at 0% 0%, rgba(90, 16, 30, 0.7) 0%, transparent 60%),
+                radial-gradient(circle at 100% 100%, rgba(27, 59, 43, 0.4) 0%, transparent 50%),
+                linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+            background-size: 32px 32px, 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+        }
+
+        /* 3D Curtain Gate Screen */
+        #curtain-wrapper {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            display: flex;
+            overflow: hidden;
+            perspective: 1400px;
+            background: #140205;
+        }
+
+        .curtain-drape {
+            width: 50%;
+            height: 100%;
+            position: relative;
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    #220307 0px,
+                    #480b15 25px,
+                    #6b1223 50px,
+                    #480b15 75px,
+                    #1e0306 100px
+                );
+            background-size: 100px 100%;
+            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.9);
+            transform-origin: center top;
+            will-change: transform, opacity;
+            display: flex;
+            align-items: center;
+        }
+
+        .curtain-drape::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 20%, transparent 80%, rgba(0,0,0,0.8) 100%),
+                        radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.08), transparent 70%);
+            pointer-events: none;
+        }
+
+        .curtain-left::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 14px;
+            background: linear-gradient(90deg, #997B1E 0%, #D4AF37 50%, #FFF0B8 75%, #997B1E 100%);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.8), -3px 0 10px rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+
+        .curtain-right::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 14px;
+            background: linear-gradient(90deg, #997B1E 0%, #FFF0B8 25%, #D4AF37 50%, #997B1E 100%);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.8), 3px 0 10px rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+
+        .curtain-tassel {
+            position: absolute;
+            top: 55%;
+            width: 60px;
+            height: 120px;
+            z-index: 15;
+            pointer-events: none;
+        }
+        .curtain-left .curtain-tassel { right: 20px; }
+        .curtain-right .curtain-tassel { left: 20px; }
+
+        .invitation-card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 110;
+            width: 92%;
+            max-width: 580px;
+            max-height: 92vh;
+            overflow-y: auto;
+            padding: 2.25rem 1.5rem;
+            background: rgba(28, 4, 7, 0.92);
+            border: 2px solid #D4AF37;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.85), 0 0 35px rgba(212, 175, 55, 0.35);
+            backdrop-filter: blur(16px);
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        @media (min-width: 640px) {
+            .invitation-card {
+                padding: 3rem 2.5rem;
+            }
+        }
+
+        .btn-royal-gold {
+            position: relative;
+            background: linear-gradient(135deg, #ECC86C 0%, #D4AF37 40%, #B38F2A 100%);
+            color: #1A0408;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            padding: 1rem 2.5rem;
+            border-radius: 2px;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .btn-royal-gold::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 40%;
+            height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            transform: rotate(30deg);
+            transition: all 0.8s ease;
+        }
+
+        .btn-royal-gold:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            color: #000;
+        }
+
+        .btn-royal-gold:hover::after {
+            left: 120%;
+        }
+
+        #webgl-butterflies-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 25;
+        }
+
+        #particles-2d-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        .tilt-card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #140205; }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #997B1E, #D4AF37, #997B1E);
+            border-radius: 5px;
+            border: 2px solid #140205;
+        }
+        ::-webkit-scrollbar-thumb:hover { background: #ECC86C; }
+
+        .timeline-line-glow {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: linear-gradient(180deg, rgba(212, 175, 55, 0.1) 0%, #D4AF37 15%, #F5E19A 50%, #D4AF37 85%, rgba(212, 175, 55, 0.1) 100%);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-line-glow { left: 28px; }
+        }
+
+        .audio-disc-spin { animation: spin 8s linear infinite; }
+        .audio-disc-paused { animation-play-state: paused; }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .wax-seal {
+            background: radial-gradient(circle at 35% 35%, #9b1c2e 0%, #5a101e 60%, #30060d 100%);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 6px rgba(0,0,0,0.7);
+            border: 2px solid rgba(212, 175, 55, 0.4);
+        }
+
+        .celtic-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .celtic-divider::before,
+        .celtic-divider::after {
+            content: '';
+            height: 1px;
+            flex-grow: 1;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.6), transparent);
+        }
+
+        .portrait-locket {
+            position: relative;
+            border-radius: 50%;
+            padding: 8px;
+            background: linear-gradient(135deg, #ECC86C, #997B1E, #F5E19A, #6B5212);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4), 0 15px 35px rgba(0,0,0,0.8);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+        }
+        .portrait-locket:hover {
+            transform: scale(1.04) translateY(-4px);
+            box-shadow: 0 0 45px rgba(212, 175, 55, 0.7), 0 20px 45px rgba(0,0,0,0.9);
+        }
+        .portrait-locket img {
+            border-radius: 50%;
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 3px solid #1C0407;
+        }
+
+        @keyframes royalHeartPulse {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6)); }
+            50% { transform: scale(1.15); filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.95)); }
+        }
+        .royal-heart-pulse { animation: royalHeartPulse 2.4s ease-in-out infinite; }
+
+        /* Infinite Smooth Sliding Marquee Ribbons */
+        @keyframes slideLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes slideRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        .marquee-track-left {
+            display: flex;
+            width: max-content;
+            animation: slideLeft 42s linear infinite;
+        }
+
+        .marquee-track-right {
+            display: flex;
+            width: max-content;
+            animation: slideRight 42s linear infinite;
+        }
+
+        .marquee-container:hover .marquee-track-left,
+        .marquee-container:hover .marquee-track-right {
+            animation-play-state: paused;
+        }
+
+        .memory-slide-card {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+        .memory-slide-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9), 0 0 30px rgba(212, 175, 55, 0.6);
+            border-color: #ECC86C;
+        }
+
+        /* Carousel Progress Bar Animation */
+        .carousel-progress-fill {
+            transition: width 0.1s linear;
+        }
+    </style>
+</head>
+<body class="bg-royal-damask text-cream antialiased selection:bg-gold selection:text-burgundy-dark">
+
+    <canvas id="webgl-butterflies-canvas"></canvas>
+    <canvas id="particles-2d-canvas"></canvas>
+
+    <!-- ==========================================
+         GATE / 3D CURTAIN REVEAL OVERLAY
+         ========================================== -->
+    <div id="curtain-wrapper">
+        <div id="curtain-left" class="curtain-drape curtain-left">
+            <div class="curtain-tassel">
+                <svg viewBox="0 0 60 120" fill="none" class="w-full h-full filter drop-shadow-md">
+                    <circle cx="30" cy="20" r="12" fill="#D4AF37" stroke="#997B1E" stroke-width="2"/>
+                    <path d="M22 20 C22 45 10 70 8 110 C20 115 40 115 52 110 C50 70 38 45 38 20 Z" fill="url(#goldTasselGrad)"/>
+                    <defs>
+                        <linearGradient id="goldTasselGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#F5E19A"/>
+                            <stop offset="50%" stop-color="#D4AF37"/>
+                            <stop offset="100%" stop-color="#7A5E12"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+
+        <div id="curtain-right" class="curtain-drape curtain-right">
+            <div class="curtain-tassel">
+                <svg viewBox="0 0 60 120" fill="none" class="w-full h-full filter drop-shadow-md">
+                    <circle cx="30" cy="20" r="12" fill="#D4AF37" stroke="#997B1E" stroke-width="2"/>
+                    <path d="M22 20 C22 45 10 70 8 110 C20 115 40 115 52 110 C50 70 38 45 38 20 Z" fill="url(#goldTasselGrad)"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Glassmorphism Central Invitation Card -->
+        <div id="invitation-splash" class="invitation-card">
+            <div class="corner-ornament corner-tl"></div>
+            <div class="corner-ornament corner-tr"></div>
+            <div class="corner-ornament corner-bl"></div>
+            <div class="corner-ornament corner-br"></div>
+
+            <p class="font-cursive text-gold text-4xl sm:text-5xl md:text-6xl mb-3 tracking-wide">
+                You Are Invited
+            </p>
+            
+            <div class="celtic-divider max-w-xs mx-auto mb-6">
+                <span class="text-gold text-xs tracking-[0.3em] uppercase font-sans">Royal Celebration</span>
+            </div>
+
+            <h1 class="font-cinzel text-white text-4xl sm:text-6xl md:text-7xl font-bold tracking-wider mb-3 text-gold-foil leading-tight">
+                Surya <span class="text-gold font-serif italic">&amp;</span> Jyothika
+            </h1>
+
+            <p class="text-gold-light/90 font-playfair italic text-xl sm:text-2xl md:text-3xl mb-8">
+                Celebrating 20 Years of Love &amp; War
+            </p>
+
+            <div class="border-t border-b border-gold/40 py-3 mb-8 bg-burgundy-deep/70">
+                <p class="text-xs sm:text-sm uppercase tracking-[0.25em] text-cream/90 font-sans font-medium">
+                    Blairquhan Castle • Maybole, Ayrshire, Scotland 🏰
+                </p>
+            </div>
+
+            <!-- Call to Action Button -->
+            <button id="open-invitation-btn" class="btn-royal-gold cursor-pointer text-sm sm:text-base py-4 px-10 font-bold tracking-[0.25em]" onclick="openRoyalInvitation()">
+                <i data-lucide="sparkles" class="w-5 h-5 text-burgundy-dark"></i>
+                <span>OPEN INVITATION</span>
+                <i data-lucide="crown" class="w-5 h-5 text-burgundy-dark"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         MAIN SCROLLABLE CONTENT WRAPPER
+         ========================================== -->
+    <main id="main-content" class="relative z-10 opacity-0 transition-opacity duration-1000">
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="relative min-h-screen flex flex-col items-center justify-center text-center px-4 py-24 overflow-hidden">
+            <!-- Castle Backdrop Layer with Gradient Overlay -->
+            <div class="absolute inset-0 z-0">
+                <img src="./blairquhan-castle.jpg" alt="Blairquhan Castle, Scotland" class="w-full h-full object-cover object-center transform scale-105 filter brightness-40 contrast-110">
+                <div class="absolute inset-0 bg-gradient-to-b from-burgundy-dark/85 via-burgundy/75 to-burgundy-dark/95 backdrop-blur-[2px]"></div>
+                <div class="absolute inset-0 bg-radial-gradient from-transparent via-burgundy-dark/60 to-black/90"></div>
+            </div>
+
+            <div class="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
+
+                <!-- Subtitle Pill -->
+                <div class="hero-anim mb-4 inline-flex items-center gap-2 px-6 py-2 rounded-full border border-gold/50 bg-burgundy-deep/80 backdrop-blur-md shadow-md">
+                    <i data-lucide="crown" class="w-3.5 h-3.5 text-gold"></i>
+                    <span class="text-gold tracking-[0.3em] uppercase text-xs md:text-sm font-sans font-medium">
+                        Together with our Families
+                    </span>
+                    <i data-lucide="crown" class="w-3.5 h-3.5 text-gold"></i>
+                </div>
+
+                <!-- Main Names Headline -->
+                <h1 class="hero-anim font-cinzel text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight text-gold-foil my-3 leading-none">
+                    Surya <span class="font-playfair italic font-normal text-cream text-4xl sm:text-6xl md:text-7xl">&amp;</span> Jyothika
+                </h1>
+
+                <!-- Theme / Tagline -->
+                <p class="hero-anim font-cursive text-3xl sm:text-5xl md:text-6xl text-gold-champagne mt-3 mb-6 filter drop-shadow">
+                    Celebrating 20 Years of Love &amp; War
+                </p>
+
+                <!-- Scottish Venue & Date Box -->
+                <div class="hero-anim gold-border-box px-8 py-5 max-w-xl mx-auto rounded-sm mt-2 shadow-royal-card">
+                    <div class="corner-ornament corner-tl"></div>
+                    <div class="corner-ornament corner-tr"></div>
+                    <div class="corner-ornament corner-bl"></div>
+                    <div class="corner-ornament corner-br"></div>
+                    
+                    <p class="font-cinzel text-gold text-lg sm:text-2xl tracking-[0.2em] font-semibold uppercase mb-1">
+                        Blairquhan Castle
+                    </p>
+                    <p class="text-cream/90 font-sans text-xs sm:text-sm tracking-widest uppercase mb-2">
+                        Maybole, Ayrshire, Scotland 🏰
+                    </p>
+                    <div class="border-t border-gold/30 pt-2.5 mt-2 flex items-center justify-center gap-3 text-gold-light text-xs sm:text-sm font-playfair italic">
+                        <span>Royal Scottish Jubilee</span>
+                        <span>•</span>
+                        <span>Two Decades of Devotion</span>
+                        <span>•</span>
+                        <span>Anno Domini 2026</span>
+                    </div>
+                </div>
+
+                <!-- Scroll Down Hint -->
+                <a href="#our-story" class="hero-anim mt-14 flex flex-col items-center gap-2 text-gold/70 hover:text-gold transition-colors duration-300 group">
+                    <span class="text-[11px] uppercase tracking-[0.3em] font-sans">Descend into the Royal Tale</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 animate-bounce text-gold"></i>
+                </a>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             "OUR STORY" INTERACTIVE SECTION
+             ========================================== -->
+        <section id="our-story" class="relative py-28 px-4 bg-burgundy-deep/90 border-t border-b border-gold/20 overflow-hidden">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-emerald-mist/20 rounded-full filter blur-[100px] pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-ruby/30 rounded-full filter blur-[100px] pointer-events-none"></div>
+
+            <div class="max-w-6xl mx-auto relative z-10">
+                <div class="text-center mb-20">
+                    <div class="inline-flex items-center gap-2 text-gold text-sm tracking-[0.3em] uppercase font-sans mb-2">
+                        <i data-lucide="cross" class="w-4 h-4"></i>
+                        <span>A Sacred Covenant of 20 Years</span>
+                        <i data-lucide="cross" class="w-4 h-4"></i>
+                    </div>
+                    <h2 class="font-cinzel text-4xl sm:text-5xl md:text-6xl text-gold-foil font-bold mb-4">
+                        Our Story
+                    </h2>
+                    <div class="celtic-divider max-w-xs mx-auto">
+                        <span class="text-gold text-base">✦ ✝ ✦</span>
+                    </div>
+                </div>
+
+                <!-- Dual Circular Portrait Frames & Central Sacred Cross/Heart -->
+                <div class="grid grid-cols-1 md:grid-cols-7 gap-8 md:gap-4 items-center mb-20">
+                    
+                    <!-- Surya Column (3 cols) -->
+                    <div class="md:col-span-3 flex flex-col items-center text-center story-card">
+                        <div class="w-56 h-56 sm:w-64 sm:h-64 portrait-locket mb-6 cursor-pointer">
+                            <img src="./surya.jpg" alt="Surya" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-cinzel text-3xl text-gold font-bold mb-2">Surya</h3>
+                        <p class="text-gold-light/80 text-xs tracking-widest uppercase font-sans mb-4">Groom &amp; Protector</p>
+                        <div class="gold-border-box p-6 max-w-sm rounded-sm">
+                            <div class="corner-ornament corner-tl"></div>
+                            <div class="corner-ornament corner-tr"></div>
+                            <div class="corner-ornament corner-bl"></div>
+                            <div class="corner-ornament corner-br"></div>
+                            <p class="font-playfair italic text-cream text-lg leading-relaxed">
+                                "The moment I saw her, I thanked the Almighty. She is God's greatest gift to my life. Through twenty years of trials and triumphs, she has been my guiding light."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Center Sacred Cross & Heart Emblem (1 col) -->
+                    <div class="md:col-span-1 flex flex-col items-center justify-center my-6 md:my-0 text-center">
+                        <div class="relative flex items-center justify-center">
+                            <div class="w-20 h-20 rounded-full border-2 border-gold/80 flex items-center justify-center bg-burgundy shadow-gold-glow-lg royal-heart-pulse cursor-pointer" title="Blessed in Holy Covenant">
+                                <svg viewBox="0 0 40 40" class="w-10 h-10">
+                                    <!-- Sacred Cross over Heart -->
+                                    <path d="M20 35 C10 25 4 18 4 12 C4 6 9 3 14 3 C17 3 19 5 20 7 C21 5 23 3 26 3 C31 3 36 6 36 12 C36 18 30 25 20 35 Z" fill="#5A101E" stroke="#D4AF37" stroke-width="1.5"/>
+                                    <path d="M18 8 H22 V16 H28 V20 H22 V30 H18 V20 H12 V16 H18 Z" fill="#FFF0B8"/>
+                                </svg>
+                            </div>
+                            <div class="absolute -inset-2 rounded-full border border-dashed border-gold/40 animate-spin" style="animation-duration: 25s;"></div>
+                        </div>
+                        <span class="font-cursive text-gold-champagne text-2xl mt-4">United in Faith</span>
+                        <span class="text-gold/60 text-[10px] uppercase font-sans tracking-widest">2006 — 2026</span>
+                    </div>
+
+                    <!-- Jyothika Column (3 cols) -->
+                    <div class="md:col-span-3 flex flex-col items-center text-center story-card">
+                        <div class="w-56 h-56 sm:w-64 sm:h-64 portrait-locket mb-6 cursor-pointer">
+                            <img src="./jyothika.jpg" alt="Jyothika" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-cinzel text-3xl text-gold font-bold mb-2">Jyothika</h3>
+                        <p class="text-gold-light/80 text-xs tracking-widest uppercase font-sans mb-4">Bride &amp; Pillar of Strength</p>
+                        <div class="gold-border-box p-6 max-w-sm rounded-sm">
+                            <div class="corner-ornament corner-tl"></div>
+                            <div class="corner-ornament corner-tr"></div>
+                            <div class="corner-ornament corner-bl"></div>
+                            <div class="corner-ornament corner-br"></div>
+                            <p class="font-playfair italic text-cream text-lg leading-relaxed">
+                                "In him, I found my strength, my laughter, and my sanctuary. Blessed with two decades of devotion, laughter, and an unshakable bond forged in love."
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Central Narrative Scottish Christian Banner -->
+                <div class="max-w-3xl mx-auto gold-border-box p-8 md:p-12 text-center rounded-sm bg-gradient-to-r from-burgundy-dark/95 via-burgundy/90 to-burgundy-dark/95 shadow-royal-card">
+                    <div class="corner-ornament corner-tl"></div>
+                    <div class="corner-ornament corner-tr"></div>
+                    <div class="corner-ornament corner-bl"></div>
+                    <div class="corner-ornament corner-br"></div>
+
+                    <div class="flex justify-center mb-4 text-gold">
+                        <i data-lucide="book-open" class="w-8 h-8 opacity-75"></i>
+                    </div>
+
+                    <blockquote class="font-playfair text-xl sm:text-2xl md:text-3xl text-gold-champagne italic font-normal leading-relaxed mb-6">
+                        “Love is patient, love is kind. It always protects, always trusts, always hopes, and always perseveres. Twenty years of sacred vows, battles won side by side, and a lifetime of grace still to write.”
+                    </blockquote>
+
+                    <div class="celtic-divider max-w-xs mx-auto">
+                        <span class="text-xs uppercase tracking-[0.3em] text-cream/70 font-sans">1 Corinthians 13:4-8 • Surya &amp; Jyothika</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             ANNIVERSARY TIMELINE: MILESTONES & BATTLES
+             ========================================== -->
+        <section id="timeline" class="relative py-28 px-4 bg-royal-gradient border-b border-gold/20 overflow-hidden">
+            <div class="max-w-6xl mx-auto relative z-10">
+                
+                <div class="text-center mb-24">
+                    <div class="inline-flex items-center gap-2 text-gold text-sm tracking-[0.3em] uppercase font-sans mb-2">
+                        <i data-lucide="shield" class="w-4 h-4"></i>
+                        <span>Two Decades in Faith &amp; Glory</span>
+                        <i data-lucide="shield" class="w-4 h-4"></i>
+                    </div>
+                    <h2 class="font-cinzel text-4xl sm:text-5xl md:text-6xl text-gold-foil font-bold mb-4">
+                        Milestones &amp; Battles of Love
+                    </h2>
+                    <p class="font-cursive text-2xl sm:text-3xl text-gold-light/90 max-w-xl mx-auto">
+                        The Chronicle of Twenty Years Blessed by Grace
+                    </p>
+                    <div class="celtic-divider max-w-xs mx-auto">
+                        <span class="text-gold text-base">⚜</span>
+                    </div>
+                </div>
+
+                <div class="relative max-w-5xl mx-auto">
+                    <div class="timeline-line-glow"></div>
+
+                    <!-- Year 1: Holy Matrimony & Sacred Vows -->
+                    <div class="timeline-entry relative flex flex-col md:flex-row items-center mb-16 md:mb-24">
+                        <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-14 md:pl-0">
+                            <div class="tilt-card gold-border-box p-6 md:p-8 rounded-sm hover:border-gold transition-all duration-300 group">
+                                <div class="corner-ornament corner-tl"></div>
+                                <div class="corner-ornament corner-tr"></div>
+                                <div class="corner-ornament corner-bl"></div>
+                                <div class="corner-ornament corner-br"></div>
+                                <span class="inline-block px-3 py-1 bg-burgundy border border-gold/40 text-gold text-xs font-sans tracking-widest uppercase font-bold rounded-sm mb-3">
+                                    Year 1 • Anno Domini 2006
+                                </span>
+                                <h3 class="font-cinzel text-2xl md:text-3xl text-white font-bold mb-2 group-hover:text-gold-light transition-colors">
+                                    The Holy Matrimony &amp; Sacred Vows
+                                </h3>
+                                <p class="font-playfair text-cream/80 text-base leading-relaxed">
+                                    Two souls bound in holy covenant before God, family, and loved ones. A glorious beginning sealed with whispered prayers and rings of unending devotion.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="absolute left-7 md:left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-burgundy border-2 border-gold shadow-gold-glow flex items-center justify-center z-20">
+                            <i data-lucide="cross" class="w-5 h-5 text-gold"></i>
+                        </div>
+                        <div class="w-full md:w-1/2 md:pl-12 hidden md:block"></div>
+                    </div>
+
+                    <!-- Year 5: Navigating the Storms -->
+                    <div class="timeline-entry relative flex flex-col md:flex-row items-center mb-16 md:mb-24">
+                        <div class="w-full md:w-1/2 md:pr-12 hidden md:block"></div>
+                        <div class="absolute left-7 md:left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-burgundy border-2 border-gold shadow-gold-glow flex items-center justify-center z-20">
+                            <i data-lucide="compass" class="w-5 h-5 text-gold"></i>
+                        </div>
+                        <div class="w-full md:w-1/2 md:pl-12 pl-14 md:pl-12">
+                            <div class="tilt-card gold-border-box p-6 md:p-8 rounded-sm hover:border-gold transition-all duration-300 group">
+                                <div class="corner-ornament corner-tl"></div>
+                                <div class="corner-ornament corner-tr"></div>
+                                <div class="corner-ornament corner-bl"></div>
+                                <div class="corner-ornament corner-br"></div>
+                                <span class="inline-block px-3 py-1 bg-burgundy border border-gold/40 text-gold text-xs font-sans tracking-widest uppercase font-bold rounded-sm mb-3">
+                                    Year 5 • Anno Domini 2011
+                                </span>
+                                <h3 class="font-cinzel text-2xl md:text-3xl text-white font-bold mb-2 group-hover:text-gold-light transition-colors">
+                                    Grace Through Every Storm
+                                </h3>
+                                <p class="font-playfair text-cream/80 text-base leading-relaxed">
+                                    Anchored in faith and devotion when tempest winds blew. Standing back-to-back, every challenge was transformed into an unbreakable fortress of love.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Year 10: Empire of Dreams -->
+                    <div class="timeline-entry relative flex flex-col md:flex-row items-center mb-16 md:mb-24">
+                        <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-14 md:pl-0">
+                            <div class="tilt-card gold-border-box p-6 md:p-8 rounded-sm hover:border-gold transition-all duration-300 group">
+                                <div class="corner-ornament corner-tl"></div>
+                                <div class="corner-ornament corner-tr"></div>
+                                <div class="corner-ornament corner-bl"></div>
+                                <div class="corner-ornament corner-br"></div>
+                                <span class="inline-block px-3 py-1 bg-burgundy border border-gold/40 text-gold text-xs font-sans tracking-widest uppercase font-bold rounded-sm mb-3">
+                                    Year 10 • Anno Domini 2016
+                                </span>
+                                <h3 class="font-cinzel text-2xl md:text-3xl text-white font-bold mb-2 group-hover:text-gold-light transition-colors">
+                                    Empire of Dreams &amp; Harvest
+                                </h3>
+                                <p class="font-playfair text-cream/80 text-base leading-relaxed">
+                                    A decade of bountiful blessings, artistic excellence, and charitable service through Agaram. Building joy for thousands while nurturing a loving home.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="absolute left-7 md:left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-burgundy border-2 border-gold shadow-gold-glow flex items-center justify-center z-20">
+                            <i data-lucide="crown" class="w-5 h-5 text-gold"></i>
+                        </div>
+                        <div class="w-full md:w-1/2 md:pl-12 hidden md:block"></div>
+                    </div>
+
+                    <!-- Year 15: Unshakable Alliance -->
+                    <div class="timeline-entry relative flex flex-col md:flex-row items-center mb-16 md:mb-24">
+                        <div class="w-full md:w-1/2 md:pr-12 hidden md:block"></div>
+                        <div class="absolute left-7 md:left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-burgundy border-2 border-gold shadow-gold-glow flex items-center justify-center z-20">
+                            <i data-lucide="shield-check" class="w-5 h-5 text-gold"></i>
+                        </div>
+                        <div class="w-full md:w-1/2 md:pl-12 pl-14 md:pl-12">
+                            <div class="tilt-card gold-border-box p-6 md:p-8 rounded-sm hover:border-gold transition-all duration-300 group">
+                                <div class="corner-ornament corner-tl"></div>
+                                <div class="corner-ornament corner-tr"></div>
+                                <div class="corner-ornament corner-bl"></div>
+                                <div class="corner-ornament corner-br"></div>
+                                <span class="inline-block px-3 py-1 bg-burgundy border border-gold/40 text-gold text-xs font-sans tracking-widest uppercase font-bold rounded-sm mb-3">
+                                    Year 15 • Anno Domini 2021
+                                </span>
+                                <h3 class="font-cinzel text-2xl md:text-3xl text-white font-bold mb-2 group-hover:text-gold-light transition-colors">
+                                    Covenant of Unshakable Grace
+                                </h3>
+                                <p class="font-playfair text-cream/80 text-base leading-relaxed">
+                                    A bond carved in timeless grace. Celebrating quiet laughter, deep mutual respect, and unconditional love that stands as an inspiration to all.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Year 20: The Scottish Jubilee Peak Card -->
+                    <div class="timeline-entry relative flex flex-col md:flex-row items-center">
+                        <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-14 md:pl-0">
+                            <div class="tilt-card p-6 md:p-8 rounded-sm bg-gradient-to-r from-gold/90 via-gold-champagne to-gold/90 text-burgundy-dark border-2 border-white shadow-gold-glow-lg group">
+                                <span class="inline-block px-3 py-1 bg-burgundy-dark text-gold text-xs font-sans tracking-widest uppercase font-bold rounded-sm mb-3">
+                                    Year 20 • The Scottish Jubilee &amp; Vow Renewal 🏰
+                                </span>
+                                <h3 class="font-cinzel text-2xl md:text-4xl text-burgundy-dark font-black mb-2">
+                                    The Royal Scottish Jubilee
+                                </h3>
+                                <p class="font-playfair text-burgundy-dark/95 text-base font-semibold leading-relaxed">
+                                    Blairquhan Castle opens its grand chapel gates. Amidst ancient Scottish stone, cathedral organ harmonies, and bagpipe serenades, renewing eternal vows for the next twenty years.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="absolute left-7 md:left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-gold border-4 border-burgundy shadow-gold-glow-lg flex items-center justify-center z-20 animate-pulse">
+                            <i data-lucide="church" class="w-6 h-6 text-burgundy-dark"></i>
+                        </div>
+                        <div class="w-full md:w-1/2 md:pl-12 hidden md:block"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- ==========================================
+             "CHERISHED MEMORIES" ROYAL SLIDING GALLERY
+             ========================================== -->
+        <section id="memories" class="relative py-28 px-4 bg-royal-damask border-b border-gold/20 overflow-hidden">
+            <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-ruby/20 rounded-full filter blur-[120px] pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto relative z-10">
+                
+                <!-- Section Header -->
+                <div class="text-center mb-16">
+                    <div class="inline-flex items-center gap-2 text-gold text-sm tracking-[0.3em] uppercase font-sans mb-2">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        <span>Captured Moments of 20 Years</span>
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    </div>
+                    <h2 class="font-cinzel text-4xl sm:text-5xl md:text-6xl text-gold-foil font-bold mb-4">
+                        Cherished Memories
+                    </h2>
+                    <p class="font-cursive text-2xl sm:text-3xl text-gold-light/90 max-w-2xl mx-auto">
+                        A Visual Symphony of Two Decades of Devotion, Laughter &amp; Holy Covenant
+                    </p>
+                    <div class="celtic-divider max-w-xs mx-auto">
+                        <span class="text-gold text-base">✦ 📸 ✦</span>
+                    </div>
+                </div>
+
+                <!-- 1. FEATURED 3D SPOTLIGHT STAGE CAROUSEL -->
+                <div class="max-w-4xl mx-auto mb-20">
+                    <div class="gold-border-box p-4 sm:p-8 rounded-sm shadow-royal-card relative bg-burgundy-dark/90">
+                        <div class="corner-ornament corner-tl"></div>
+                        <div class="corner-ornament corner-tr"></div>
+                        <div class="corner-ornament corner-bl"></div>
+                        <div class="corner-ornament corner-br"></div>
+
+                        <!-- Top Spotlight Header Info -->
+                        <div class="flex items-center justify-between border-b border-gold/30 pb-3 mb-6">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-gold animate-ping"></span>
+                                <span class="text-gold font-sans text-xs tracking-[0.25em] uppercase font-semibold">Memories Spotlight</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span id="carousel-counter" class="font-cinzel text-gold text-sm tracking-widest">01 / 13</span>
+                                <button id="carousel-autoplay-btn" onclick="toggleCarouselAutoplay()" class="text-gold/70 hover:text-gold text-xs font-sans uppercase tracking-wider flex items-center gap-1 bg-burgundy/80 px-2.5 py-1 rounded border border-gold/30">
+                                    <i id="carousel-play-icon" data-lucide="pause" class="w-3.5 h-3.5"></i>
+                                    <span id="carousel-play-text">Auto</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Main Stage Image Box with Ambient Backdrop Glow (No Face Cropping) -->
+                        <div class="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] max-h-[560px] rounded-sm overflow-hidden border border-gold/40 shadow-2xl group bg-black/80 flex items-center justify-center">
+                            
+                            <!-- Ambient Blurred Color Glow Backdrop -->
+                            <img 
+                                id="stage-bg" 
+                                src="./sj/1 (1).jpg" 
+                                alt="" 
+                                class="absolute inset-0 w-full h-full object-cover filter blur-2xl scale-125 opacity-40 pointer-events-none transition-all duration-700"
+                            >
+
+                            <!-- Sharp Foreground Main Image (Full Face & Body Visible) -->
+                            <img 
+                                id="stage-img" 
+                                src="./sj/1 (1).jpg" 
+                                alt="Surya &amp; Jyothika Memory" 
+                                class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center transition-all duration-700 ease-out transform group-hover:scale-102 cursor-pointer filter drop-shadow-2xl"
+                                onclick="openRoyalLightbox(currentMemoryIndex)"
+                            >
+                            
+                            <!-- Subtle Edge Vignette -->
+                            <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/90 via-black/20 to-black/30 pointer-events-none"></div>
+
+                            <!-- Click to Zoom Badge -->
+                            <div class="absolute top-4 right-4 z-20 bg-burgundy-dark/90 border border-gold/60 text-gold px-3 py-1.5 rounded text-xs font-sans tracking-wider flex items-center gap-1.5 shadow-lg backdrop-blur cursor-pointer hover:bg-gold hover:text-burgundy-dark transition-colors" onclick="openRoyalLightbox(currentMemoryIndex)">
+                                <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+                                <span>Zoom HD</span>
+                            </div>
+
+                            <!-- Bottom Stage Caption Bar -->
+                            <div class="absolute bottom-0 inset-x-0 z-20 p-4 sm:p-6 bg-gradient-to-t from-burgundy-dark/95 via-burgundy-dark/80 to-transparent flex flex-col justify-end text-left pointer-events-none">
+                                <span id="stage-tag" class="text-gold font-sans text-[11px] sm:text-xs tracking-[0.3em] uppercase font-bold mb-1">
+                                    Chapel of Blairquhan Castle
+                                </span>
+                                <h3 id="stage-title" class="font-cinzel text-xl sm:text-2xl md:text-3xl text-white font-bold mb-1 text-gold-foil">
+                                    The Holy Altar Vows
+                                </h3>
+                                <p id="stage-desc" class="font-playfair italic text-cream/90 text-xs sm:text-sm md:text-base max-w-2xl leading-relaxed">
+                                    "Before the chapel altar, surrounded by love, sacred prayer, and two decades of unbreakable vows."
+                                </p>
+                            </div>
+
+                            <!-- Carousel Progress Bar -->
+                            <div class="absolute bottom-0 left-0 right-0 h-1 z-30 bg-gold/20">
+                                <div id="carousel-progress" class="h-full bg-gold carousel-progress-fill" style="width: 0%;"></div>
+                            </div>
+
+                            <!-- Prev & Next Overlay Buttons -->
+                            <button 
+                                onclick="prevMemory()" 
+                                class="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-burgundy-dark/85 border border-gold/60 text-gold flex items-center justify-center hover:bg-gold hover:text-burgundy-dark transition-all duration-300 shadow-gold-glow backdrop-blur hover:scale-110 active:scale-95 cursor-pointer"
+                                title="Previous Memory"
+                            >
+                                <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                            </button>
+                            <button 
+                                onclick="nextMemory()" 
+                                class="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-burgundy-dark/85 border border-gold/60 text-gold flex items-center justify-center hover:bg-gold hover:text-burgundy-dark transition-all duration-300 shadow-gold-glow backdrop-blur hover:scale-110 active:scale-95 cursor-pointer"
+                                title="Next Memory"
+                            >
+                                <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                            </button>
+                        </div>
+
+                        <!-- Filmstrip Thumbnail Strip -->
+                        <div class="mt-6 flex items-center gap-3 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-gold/50" id="thumbnail-filmstrip">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 2. DUAL CONTINUOUS INFINITE SLIDING RIBBONS (LEFT & RIGHT) -->
+                <div class="space-y-8">
+                    
+                    <div class="text-center mb-6">
+                        <span class="text-xs uppercase tracking-[0.3em] text-gold/80 font-sans font-semibold">
+                            ✦ Continuous Sliding Memories (Hover to Pause &amp; Click to Enlarge) ✦
+                        </span>
+                    </div>
+
+                    <!-- RIBBON 1: SMOOTH SLIDING LEFT -->
+                    <div class="marquee-container overflow-hidden relative py-3 mask-gradient">
+                        <div class="marquee-track-left gap-6 items-center">
+                            
+                            <!-- Slide Items (Batch 1) -->
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(0)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (1).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (1).jpg" alt="Altar Vows" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Chapel</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">The Holy Altar Vows</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Holy Matrimony in Scotland</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(1)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (2).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (2).jpg" alt="Petal Shower" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Joy</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">Joyful Petal Shower</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Aisle of Pure Celebration</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(2)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (3).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (3).jpg" alt="Tender Whispers" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Love</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">Tender Whispers</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Eternal Devotion &amp; Grace</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(3)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (4).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (4).jpg" alt="Castle Bride" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Bride</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">Grace of the Castle Bride</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Radiance in the Grand Hall</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(4)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (5).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (5).jpg" alt="Joined Before God" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Covenant</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">Joined Before God</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Unbroken Sacred Promise</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(5)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (6).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (6).jpg" alt="Chapel Assembly" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Sanctuary</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">Sacred Chapel Assembly</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Witnessed by Loved Ones</p>
+                                </div>
+                            </div>
+
+                            <!-- Duplicate Set for Seamless Infinite Left Loop -->
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(0)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (1).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (1).jpg" alt="Altar Vows" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Chapel</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">The Holy Altar Vows</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Holy Matrimony in Scotland</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(1)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (2).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (2).jpg" alt="Petal Shower" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Joy</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">Joyful Petal Shower</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Aisle of Pure Celebration</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(2)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (3).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (3).jpg" alt="Tender Whispers" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Love</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">Tender Whispers</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Eternal Devotion &amp; Grace</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(3)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (4).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (4).jpg" alt="Castle Bride" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Bride</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">Grace of the Castle Bride</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Radiance in the Grand Hall</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(4)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (5).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (5).jpg" alt="Joined Before God" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Covenant</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">Joined Before God</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Unbroken Sacred Promise</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(5)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (6).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (6).jpg" alt="Chapel Assembly" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Sanctuary</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">Sacred Chapel Assembly</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Witnessed by Loved Ones</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- RIBBON 2: SMOOTH SLIDING RIGHT -->
+                    <div class="marquee-container overflow-hidden relative py-3 mask-gradient">
+                        <div class="marquee-track-right gap-6 items-center">
+                            
+                            <!-- Slide Items (Batch 2) -->
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(6)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (7).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (7).jpg" alt="Loch Lomond" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Highlands</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">Loch Lomond Serenade</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Scottish Waters at Dusk</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(7)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (8).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (8).jpg" alt="Joined Rings" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Sacred Rings</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">The Rings of Eternity</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Two Decades of Holy Covenant</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(8)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (9).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (9).jpg" alt="Highland Embrace" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Romance</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">Highland Embrace</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Warmth Against Highland Mist</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(9)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (10).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (10).jpg" alt="Castle Staircase" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Castle</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">Castle Grand Staircase</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Blairquhan Castle Splendor</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(10)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (11).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (11).jpg" alt="Castle Library" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Vintage</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">In the Castle Library</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Classic Black &amp; White Heritage</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(11)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (12).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (12).jpg" alt="Royal Splendor" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Elegance</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">Royal Scottish Splendor</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Poise, Dignity &amp; Grace</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(12)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (13).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (13).jpg" alt="Castle Gate" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Estate</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">Blairquhan Castle Gates</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Arrival at the Historic Stronghold</p>
+                                </div>
+                            </div>
+
+                            <!-- Duplicate Set for Seamless Infinite Right Loop -->
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(6)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (7).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (7).jpg" alt="Loch Lomond" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Highlands</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">Loch Lomond Serenade</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Scottish Waters at Dusk</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(7)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (8).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (8).jpg" alt="Joined Rings" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Sacred Rings</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">The Rings of Eternity</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Two Decades of Holy Covenant</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(8)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (9).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (9).jpg" alt="Highland Embrace" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Romance</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">Highland Embrace</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Warmth Against Highland Mist</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(9)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (10).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (10).jpg" alt="Castle Staircase" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Castle</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">Castle Grand Staircase</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Blairquhan Castle Splendor</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(10)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (11).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (11).jpg" alt="Castle Library" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Vintage</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">In the Castle Library</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Classic Black &amp; White Heritage</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(11)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (12).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (12).jpg" alt="Royal Splendor" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Elegance</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">Royal Scottish Splendor</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Poise, Dignity &amp; Grace</p>
+                                </div>
+                            </div>
+
+                            <div class="memory-slide-card flex-shrink-0 w-72 sm:w-80 h-96 gold-border-box p-3 rounded-sm cursor-pointer group" onclick="openRoyalLightbox(12)">
+                                <div class="w-full h-72 rounded-sm overflow-hidden border border-gold/30 relative bg-black/80 flex items-center justify-center">
+                                    <img src="./sj/1 (13).jpg" alt="" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-125 opacity-30 pointer-events-none">
+                                    <img src="./sj/1 (13).jpg" alt="Castle Gate" class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain object-center group-hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2 right-2 z-20 bg-burgundy/90 text-gold text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 border border-gold/40 rounded">Estate</span>
+                                </div>
+                                <div class="pt-3 text-center">
+                                    <h4 class="font-cinzel text-white text-base font-bold text-gold-foil">Blairquhan Castle Gates</h4>
+                                    <p class="font-playfair italic text-cream/70 text-xs">Arrival at the Historic Stronghold</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             FULLSCREEN ROYAL LIGHTBOX MODAL
+             ========================================== -->
+        <div id="royal-lightbox" class="fixed inset-0 z-[120] bg-black/95 backdrop-blur-md hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+            
+            <!-- Close Button -->
+            <button onclick="closeRoyalLightbox()" class="absolute top-6 right-6 w-12 h-12 rounded-full bg-burgundy-dark/90 border border-gold/60 text-gold flex items-center justify-center hover:bg-gold hover:text-burgundy-dark transition-all duration-300 shadow-gold-glow z-50">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <!-- Previous Button -->
+            <button onclick="prevLightboxMemory()" class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-burgundy-dark/90 border border-gold/60 text-gold flex items-center justify-center hover:bg-gold hover:text-burgundy-dark transition-all duration-300 shadow-gold-glow z-50">
+                <i data-lucide="chevron-left" class="w-7 h-7"></i>
+            </button>
+
+            <!-- Next Button -->
+            <button onclick="nextLightboxMemory()" class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-burgundy-dark/90 border border-gold/60 text-gold flex items-center justify-center hover:bg-gold hover:text-burgundy-dark transition-all duration-300 shadow-gold-glow z-50">
+                <i data-lucide="chevron-right" class="w-7 h-7"></i>
+            </button>
+
+            <!-- Lightbox Main Frame Container -->
+            <div class="max-w-5xl w-full max-h-[90vh] flex flex-col items-center gold-border-box p-4 sm:p-6 rounded-sm relative bg-burgundy-dark/95 shadow-2xl">
+                <div class="corner-ornament corner-tl"></div>
+                <div class="corner-ornament corner-tr"></div>
+                <div class="corner-ornament corner-bl"></div>
+                <div class="corner-ornament corner-br"></div>
+
+                <div class="relative w-full max-h-[70vh] flex items-center justify-center overflow-hidden rounded border border-gold/40 bg-black/50">
+                    <img id="lightbox-img" src="./sj/1 (1).jpg" alt="Memory HD" class="max-h-[70vh] w-auto object-contain rounded transition-all duration-500">
+                </div>
+
+                <div class="mt-4 text-center w-full">
+                    <div class="flex items-center justify-between border-b border-gold/30 pb-2 mb-2 px-2">
+                        <span id="lightbox-tag" class="text-gold text-xs font-sans uppercase tracking-[0.25em] font-semibold">Chapel Vows</span>
+                        <span id="lightbox-counter" class="text-gold-light text-xs font-cinzel tracking-widest">Photo 01 of 13</span>
+                    </div>
+                    <h3 id="lightbox-title" class="font-cinzel text-xl sm:text-2xl text-gold-foil font-bold mb-1">The Holy Altar Vows</h3>
+                    <p id="lightbox-desc" class="font-playfair italic text-cream/80 text-sm sm:text-base max-w-xl mx-auto">"Before the chapel altar, surrounded by love, sacred prayer, and two decades of unbreakable vows."</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ==========================================
+             VENUE & ROYAL BLESSINGS SECTION
+             ========================================== -->
+        <section id="venue" class="relative py-28 px-4 bg-burgundy-deep/95 border-b border-gold/20">
+            <div class="max-w-6xl mx-auto relative z-10">
+                
+                <div class="text-center mb-20">
+                    <div class="inline-flex items-center gap-2 text-gold text-sm tracking-[0.3em] uppercase font-sans mb-2">
+                        <i data-lucide="map-pin" class="w-4 h-4"></i>
+                        <span>The Scottish Stronghold</span>
+                        <i data-lucide="map-pin" class="w-4 h-4"></i>
+                    </div>
+                    <h2 class="font-cinzel text-4xl sm:text-5xl md:text-6xl text-gold-foil font-bold mb-4">
+                        Venue &amp; Royal Blessings
+                    </h2>
+                    <div class="celtic-divider max-w-xs mx-auto">
+                        <span class="text-gold text-base">🏰</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    
+                    <!-- Left Card: Royal & Family Blessings -->
+                    <div class="tilt-card gold-border-box p-8 md:p-10 rounded-sm flex flex-col justify-between shadow-royal-card">
+                        <div class="corner-ornament corner-tl"></div>
+                        <div class="corner-ornament corner-tr"></div>
+                        <div class="corner-ornament corner-bl"></div>
+                        <div class="corner-ornament corner-br"></div>
+
+                        <div>
+                            <div class="flex items-center gap-3 text-gold mb-6 border-b border-gold/30 pb-4">
+                                <i data-lucide="cross" class="w-6 h-6"></i>
+                                <h3 class="font-cinzel text-2xl text-white font-bold">Royal &amp; Family Blessings</h3>
+                            </div>
+
+                            <p class="font-playfair italic text-cream/90 text-lg mb-8 leading-relaxed">
+                                “The Lord bless you and keep you; the Lord make his face shine on you and be gracious to you; the Lord turn his face toward you and give you peace.” — Numbers 6:24-26
+                            </p>
+
+                            <div class="space-y-6">
+                                <div class="bg-burgundy/60 border border-gold/20 p-4 rounded-sm">
+                                    <p class="text-xs uppercase tracking-widest text-gold font-sans font-bold mb-1">With Grace &amp; Prayers</p>
+                                    <p class="font-playfair text-cream text-lg font-medium">Sivakumar &amp; Lakshmi Ammal</p>
+                                    <p class="text-xs text-cream/60 italic">"Love tested by time and sustained by prayer is true treasure."</p>
+                                </div>
+
+                                <div class="bg-burgundy/60 border border-gold/20 p-4 rounded-sm">
+                                    <p class="text-xs uppercase tracking-widest text-gold font-sans font-bold mb-1">In Loving Warmth</p>
+                                    <p class="font-playfair text-cream text-lg font-medium">Chander Sadanah &amp; Shama Sadanah</p>
+                                    <p class="text-xs text-cream/60 italic">"Forever united in joyous faith and happiness."</p>
+                                </div>
+
+                                <div class="bg-burgundy/60 border border-gold/20 p-4 rounded-sm">
+                                    <p class="text-xs uppercase tracking-widest text-gold font-sans font-bold mb-1">With the Cheer of Next Generation</p>
+                                    <p class="font-playfair text-cream text-lg font-medium">Diya &amp; Dev</p>
+                                    <p class="text-xs text-cream/60 italic">"To our greatest superheroes &amp; guiding lights."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-gold/30 text-center">
+                            <span class="font-cursive text-gold-champagne text-3xl">Blessed by God &amp; Loved Ones</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Card: The Royal Venue -->
+                    <div class="tilt-card gold-border-box p-8 md:p-10 rounded-sm flex flex-col justify-between shadow-royal-card">
+                        <div class="corner-ornament corner-tl"></div>
+                        <div class="corner-ornament corner-tr"></div>
+                        <div class="corner-ornament corner-bl"></div>
+                        <div class="corner-ornament corner-br"></div>
+
+                        <div>
+                            <div class="flex items-center gap-3 text-gold mb-6 border-b border-gold/30 pb-4">
+                                <i data-lucide="castle" class="w-6 h-6"></i>
+                                <h3 class="font-cinzel text-2xl text-white font-bold">The Royal Scottish Venue</h3>
+                            </div>
+
+                            <p class="font-cinzel text-gold text-xl font-bold mb-1">Blairquhan Castle</p>
+                            <p class="text-cream/80 text-sm font-sans mb-4">Maybole, Ayrshire, Scotland KA19 7LZ, United Kingdom</p>
+
+                            <div class="relative w-full h-64 rounded-sm overflow-hidden border border-gold/40 shadow-inner mb-6 group">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d35501.9922904882!2d-4.662890558137359!3d55.33405785055005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4862f92429dc2dd9%3A0xcfe0e340db40243e!2sBlairquhan%20Castle!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk" 
+                                    width="100%" 
+                                    height="100%" 
+                                    style="border:0; filter: contrast(1.1) saturate(0.9) brightness(0.85);" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    title="Blairquhan Castle Map">
+                                </iframe>
+                                <div class="absolute top-2 right-2 bg-burgundy-dark/90 border border-gold/50 px-3 py-1 text-[11px] font-sans text-gold rounded pointer-events-none">
+                                    55.3340° N, 4.6329° W
+                                </div>
+                            </div>
+
+                            <ul class="text-sm font-playfair text-cream/90 space-y-2 mb-6">
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-gold"></i>
+                                    <span>Historic Regency Era Scottish Castle &amp; Private Chapel</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-gold"></i>
+                                    <span>Secluded Walled Gardens &amp; River Girvan Parkland</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-gold"></i>
+                                    <span>Grand Saloon with Soaring Ceilings &amp; Castle Towers</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="text-center pt-4">
+                            <a href="https://maps.google.com/?q=Blairquhan+Castle,+Maybole,+Ayrshire,+Scotland" target="_blank" rel="noopener noreferrer" class="btn-royal-gold w-full text-sm">
+                                <i data-lucide="navigation" class="w-4 h-4 text-burgundy-dark"></i>
+                                <span>Get Directions to Blairquhan Castle</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             INTERACTIVE RSVP CARD (WITH WHATSAPP 9499912508)
+             ========================================== -->
+        <section id="rsvp" class="relative py-28 px-4 bg-velvet-gradient border-b border-gold/20 overflow-hidden">
+            <div class="max-w-2xl mx-auto relative z-10">
+                
+                <div class="text-center mb-12">
+                    <div class="inline-flex items-center gap-2 text-gold text-sm tracking-[0.3em] uppercase font-sans mb-2">
+                        <i data-lucide="scroll" class="w-4 h-4"></i>
+                        <span>Presence &amp; Blessings</span>
+                        <i data-lucide="scroll" class="w-4 h-4"></i>
+                    </div>
+                    <h2 class="font-cinzel text-4xl sm:text-5xl md:text-6xl text-gold-foil font-bold mb-3">
+                        Royal RSVP
+                    </h2>
+                    <p class="font-playfair italic text-gold-light/90 text-base sm:text-lg">
+                        Kindly respond by the 1st of Autumn to confirm your presence in the Grand Hall
+                    </p>
+                    <div class="celtic-divider max-w-xs mx-auto">
+                        <span class="text-gold text-base">✦ ✝ ✦</span>
+                    </div>
+                </div>
+
+                <!-- RSVP Card Form Container -->
+                <div class="gold-border-box p-8 sm:p-12 rounded-sm shadow-royal-card relative bg-burgundy-dark/95">
+                    <div class="corner-ornament corner-tl"></div>
+                    <div class="corner-ornament corner-tr"></div>
+                    <div class="corner-ornament corner-bl"></div>
+                    <div class="corner-ornament corner-br"></div>
+
+                    <!-- Wax Seal Header Accent -->
+                    <div class="flex justify-center -mt-16 sm:-mt-20 mb-6">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 wax-seal rounded-full flex items-center justify-center text-gold font-cinzel font-black text-2xl shadow-2xl">
+                            SJ
+                        </div>
+                    </div>
+
+                    <!-- Success Message Container -->
+                    <div id="rsvp-success" class="hidden text-center py-8"></div>
+
+                    <!-- The RSVP Form -->
+                    <form id="royal-rsvp-form" class="space-y-6" onsubmit="submitRoyalRSVP(event)">
+                        <!-- Name Field -->
+                        <div>
+                            <label for="guest-name" class="block text-gold text-xs font-sans font-bold tracking-[0.2em] uppercase mb-2">
+                                Full Name &amp; Title
+                            </label>
+                            <input 
+                                type="text" 
+                                id="guest-name" 
+                                required 
+                                placeholder="Lord / Lady / Dr. / Mr. & Mrs..." 
+                                class="w-full bg-burgundy/80 border border-gold/40 text-cream px-4 py-3.5 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all duration-300 font-playfair text-base rounded-sm placeholder:text-cream/40"
+                            >
+                        </div>
+
+                        <!-- Number of Guests & Banquet Preference -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="guest-count" class="block text-gold text-xs font-sans font-bold tracking-[0.2em] uppercase mb-2">
+                                    Number of Nobles (Guests)
+                                </label>
+                                <select 
+                                    id="guest-count" 
+                                    class="w-full bg-burgundy/80 border border-gold/40 text-cream px-4 py-3.5 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all duration-300 font-playfair text-base rounded-sm"
+                                >
+                                    <option value="1" class="bg-burgundy-dark text-cream">1 Attendee</option>
+                                    <option value="2" selected class="bg-burgundy-dark text-cream">2 Attendees</option>
+                                    <option value="3" class="bg-burgundy-dark text-cream">3 Attendees</option>
+                                    <option value="4" class="bg-burgundy-dark text-cream">4 Attendees</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="dietary-preference" class="block text-gold text-xs font-sans font-bold tracking-[0.2em] uppercase mb-2">
+                                    Banquet Preference
+                                </label>
+                                <select 
+                                    id="dietary-preference" 
+                                    class="w-full bg-burgundy/80 border border-gold/40 text-cream px-4 py-3.5 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all duration-300 font-playfair text-base rounded-sm"
+                                >
+                                    <option value="scottish-feast" class="bg-burgundy-dark text-cream">Scottish Highland Roast &amp; Royal Feast</option>
+                                    <option value="loch-fyne" class="bg-burgundy-dark text-cream">Loch Fyne Salmon Gourmet</option>
+                                    <option value="royal-veg" class="bg-burgundy-dark text-cream">Royal Garden Harvest (Vegetarian / Vegan)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Radio Toggle: Attending -->
+                        <div>
+                            <label class="block text-gold text-xs font-sans font-bold tracking-[0.2em] uppercase mb-3">
+                                Will You Grace the Castle Hall?
+                            </label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <label class="flex items-center gap-3 p-3.5 bg-burgundy/60 border border-gold/30 rounded-sm cursor-pointer hover:border-gold transition-colors">
+                                    <input type="radio" name="attending" value="joyfully" checked class="w-4 h-4 text-gold accent-gold">
+                                    <span class="font-playfair text-cream text-base">Joyfully Accepts</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3.5 bg-burgundy/60 border border-gold/30 rounded-sm cursor-pointer hover:border-gold transition-colors">
+                                    <input type="radio" name="attending" value="regretfully" class="w-4 h-4 text-gold accent-gold">
+                                    <span class="font-playfair text-cream/70 text-base">Regretfully Declines</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Wishes & Prayers Note -->
+                        <div>
+                            <label for="wishes-note" class="block text-gold text-xs font-sans font-bold tracking-[0.2em] uppercase mb-2">
+                                Words of Blessing &amp; Prayer for Surya &amp; Jyothika
+                            </label>
+                            <textarea 
+                                id="wishes-note" 
+                                rows="3" 
+                                placeholder="Your loving prayers, wishes and memories for the 20-year jubilee..." 
+                                class="w-full bg-burgundy/80 border border-gold/40 text-cream px-4 py-3 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all duration-300 font-playfair text-base rounded-sm placeholder:text-cream/40"
+                            ></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="pt-4">
+                            <button 
+                                type="submit" 
+                                id="rsvp-submit-btn" 
+                                class="btn-royal-gold w-full text-base py-4 font-bold tracking-[0.25em]"
+                            >
+                                <i data-lucide="feather" class="w-5 h-5 text-burgundy-dark"></i>
+                                <span>Seal &amp; Deliver via WhatsApp</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             FOOTER & CREDITS
+             ========================================== -->
+        <footer class="relative bg-black py-16 px-4 text-center border-t border-gold/30 z-20">
+            <div class="max-w-4xl mx-auto flex flex-col items-center">
+                
+                <div class="font-cinzel text-4xl text-gold-foil font-bold mb-2">
+                    Surya <span class="font-serif italic font-normal text-cream">&amp;</span> Jyothika
+                </div>
+                
+                <p class="font-cursive text-2xl text-gold-light/90 mb-4">
+                    Twenty Years of Holy Matrimony, Love &amp; War • Blairquhan Castle, Scotland
+                </p>
+
+                <div class="inline-block px-6 py-2 border border-gold/40 bg-burgundy-dark/60 rounded-full text-gold font-sans font-bold tracking-[0.3em] text-xs sm:text-sm mb-8 shadow-gold-glow">
+                    #SURYAJYOTHIKA20YEARS
+                </div>
+
+                <div class="celtic-divider max-w-sm mx-auto mb-6">
+                    <span class="text-gold text-xs uppercase font-sans tracking-widest">Ayrshire, Scotland • Anno Domini 2026</span>
+                </div>
+
+                <p class="text-xs text-cream/50 font-sans tracking-wider">
+                    Crafted with Royal Splendor, WebGL Physics &amp; Christian Scottish Heritage for the 20th Anniversary
+                </p>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- ==========================================
+         FLOATING AUDIO CONTROLLER (CELTIC HARP & CHURCH STRINGS)
+         ========================================== -->
+    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+        <div id="audio-tooltip" class="hidden md:block bg-burgundy-dark/95 border border-gold/50 text-gold text-xs px-3 py-1.5 rounded shadow-lg backdrop-blur font-sans tracking-wider">
+            Scottish Celtic &amp; Cathedral Melodies
+        </div>
+
+        <button 
+            id="audio-toggle-btn" 
+            onclick="toggleRoyalAudio()" 
+            class="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-gold-dark via-gold to-gold-light text-burgundy-dark flex items-center justify-center shadow-gold-glow-lg hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white cursor-pointer group"
+            title="Toggle Royal Scottish Castle Audio"
+        >
+            <div id="audio-disc" class="absolute inset-1 rounded-full border border-burgundy-dark/40 flex items-center justify-center audio-disc-spin audio-disc-paused pointer-events-none">
+                <div class="w-4 h-4 rounded-full bg-burgundy-dark flex items-center justify-center">
+                    <div class="w-1.5 h-1.5 rounded-full bg-gold"></div>
+                </div>
+            </div>
+            <i id="audio-icon" data-lucide="music" class="w-6 h-6 text-burgundy-dark relative z-10"></i>
+        </button>
+    </div>
+
+
+    <!-- ==========================================
+         JAVASCRIPT LOGIC & 2D/3D ENGINES
+         ========================================== -->
+    <script>
+        lucide.createIcons();
+
+        /* ==========================================================================
+           1. PROCEDURAL CELTIC & CATHEDRAL AUDIO ENGINE (Web Audio API)
+           ========================================================================== */
+        class RoyalCelticAudioEngine {
+            constructor() {
+                this.ctx = null;
+                this.isPlaying = false;
+                this.timer = null;
+                this.masterGain = null;
+                this.reverbNode = null;
+                this.scale = [220.00, 246.94, 277.18, 329.63, 369.99, 440.00, 493.88, 554.37, 659.25, 739.99];
+            }
+
+            init() {
+                if (this.ctx) return;
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                this.ctx = new AudioCtx();
+
+                this.masterGain = this.ctx.createGain();
+                this.masterGain.gain.setValueAtTime(0.3, this.ctx.currentTime);
+                this.masterGain.connect(this.ctx.destination);
+
+                const delay = this.ctx.createDelay();
+                delay.delayTime.value = 0.38;
+                const feedback = this.ctx.createGain();
+                feedback.gain.value = 0.45;
+                const delayFilter = this.ctx.createBiquadFilter();
+                delayFilter.frequency.value = 1800;
+
+                delay.connect(feedback);
+                feedback.connect(delayFilter);
+                delayFilter.connect(delay);
+                delayFilter.connect(this.masterGain);
+                this.reverbNode = delay;
+            }
+
+            playHarpPluck(freq, time, duration = 2.5, velocity = 0.25) {
+                if (!this.ctx) return;
+                const osc = this.ctx.createOscillator();
+                const gain = this.ctx.createGain();
+                const filter = this.ctx.createBiquadFilter();
+
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(freq, time);
+
+                filter.type = 'lowpass';
+                filter.frequency.setValueAtTime(freq * 3.5, time);
+                filter.frequency.exponentialRampToValueAtTime(freq * 0.8, time + duration);
+
+                gain.gain.setValueAtTime(0.001, time);
+                gain.gain.linearRampToValueAtTime(velocity, time + 0.02);
+                gain.gain.exponentialRampToValueAtTime(0.0001, time + duration);
+
+                osc.connect(filter);
+                filter.connect(gain);
+                gain.connect(this.masterGain);
+                if (this.reverbNode) gain.connect(this.reverbNode);
+
+                osc.start(time);
+                osc.stop(time + duration);
+            }
+
+            playChurchOrganDrone(rootFreq = 110) {
+                if (!this.ctx) return;
+                const osc = this.ctx.createOscillator();
+                const gain = this.ctx.createGain();
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(rootFreq, this.ctx.currentTime);
+
+                const filter = this.ctx.createBiquadFilter();
+                filter.type = 'lowpass';
+                filter.frequency.setValueAtTime(280, this.ctx.currentTime);
+
+                gain.gain.setValueAtTime(0.001, this.ctx.currentTime);
+                gain.gain.linearRampToValueAtTime(0.08, this.ctx.currentTime + 3);
+
+                osc.connect(filter);
+                filter.connect(gain);
+                gain.connect(this.masterGain);
+
+                osc.start();
+                this.droneOsc = osc;
+                this.droneGain = gain;
+            }
+
+            start() {
+                this.init();
+                if (this.ctx.state === 'suspended') {
+                    this.ctx.resume();
+                }
+                this.isPlaying = true;
+                this.playChurchOrganDrone(110);
+
+                let step = 0;
+                const arpPattern = [0, 2, 4, 7, 5, 3, 2, 4, 6, 8, 7, 5, 4, 2, 1, 0];
+
+                const scheduleLoop = () => {
+                    if (!this.isPlaying) return;
+                    const now = this.ctx.currentTime;
+                    const noteIdx = arpPattern[step % arpPattern.length];
+                    const freq = this.scale[noteIdx % this.scale.length];
+                    
+                    this.playHarpPluck(freq, now, 2.2, 0.22);
+
+                    if (step % 4 === 0) {
+                        const bassFreq = this.scale[0] * 0.5;
+                        this.playHarpPluck(bassFreq, now, 3.5, 0.28);
+                    }
+
+                    step++;
+                    this.timer = setTimeout(scheduleLoop, 380);
+                };
+
+                scheduleLoop();
+            }
+
+            stop() {
+                this.isPlaying = false;
+                if (this.timer) clearTimeout(this.timer);
+                if (this.droneGain && this.ctx) {
+                    this.droneGain.gain.linearRampToValueAtTime(0.0001, this.ctx.currentTime + 1);
+                    setTimeout(() => {
+                        if (this.droneOsc) this.droneOsc.stop();
+                    }, 1000);
+                }
+            }
+        }
+
+        const royalAudio = new RoyalCelticAudioEngine();
+        let isAudioActive = false;
+
+        function toggleRoyalAudio() {
+            const disc = document.getElementById('audio-disc');
+            const icon = document.getElementById('audio-icon');
+            const tooltip = document.getElementById('audio-tooltip');
+
+            isAudioActive = !isAudioActive;
+
+            if (isAudioActive) {
+                royalAudio.start();
+                disc.classList.remove('audio-disc-paused');
+                icon.setAttribute('data-lucide', 'volume-2');
+                if (tooltip) tooltip.innerText = "Playing Scottish Romance";
+            } else {
+                royalAudio.stop();
+                disc.classList.add('audio-disc-paused');
+                icon.setAttribute('data-lucide', 'volume-x');
+                if (tooltip) tooltip.innerText = "Audio Muted";
+            }
+            lucide.createIcons();
+        }
+
+
+        /* ==========================================================================
+           2. 3D CURTAIN REVEAL CONTROLLER (GSAP)
+           ========================================================================== */
+        function openRoyalInvitation() {
+            if (!isAudioActive) {
+                toggleRoyalAudio();
+            }
+
+            const curtainWrapper = document.getElementById('curtain-wrapper');
+            const curtainLeft = document.getElementById('curtain-left');
+            const curtainRight = document.getElementById('curtain-right');
+            const splashCard = document.getElementById('invitation-splash');
+            const mainContent = document.getElementById('main-content');
+
+            const tl = gsap.timeline({
+                onComplete: () => {
+                    curtainWrapper.style.display = 'none';
+                    document.body.style.userSelect = 'auto';
+                    initScrollAnimations();
+                }
+            });
+
+            tl.to(splashCard, {
+                scale: 0.85,
+                opacity: 0,
+                y: -40,
+                duration: 0.7,
+                ease: "power2.inOut"
+            })
+            .to(curtainLeft, {
+                xPercent: -105,
+                rotateY: 25,
+                duration: 1.8,
+                ease: "power4.inOut"
+            }, "-=0.3")
+            .to(curtainRight, {
+                xPercent: 105,
+                rotateY: -25,
+                duration: 1.8,
+                ease: "power4.inOut"
+            }, "<")
+            .to(curtainWrapper, {
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out"
+            }, "-=0.8")
+            .to(mainContent, {
+                opacity: 1,
+                duration: 1.2,
+                ease: "power2.out"
+            }, "-=0.6");
+        }
+
+
+        /* ==========================================================================
+           3. THREE.JS 3D WEBGL SHIMMERING BUTTERFLY ENGINE
+           ========================================================================== */
+        class ThreeButterfliesEngine {
+            constructor() {
+                this.canvas = document.getElementById('webgl-butterflies-canvas');
+                this.scene = null;
+                this.camera = null;
+                this.renderer = null;
+                this.butterflies = [];
+                this.mouseX = 0;
+                this.mouseY = 0;
+                this.targetMouseX = 0;
+                this.targetMouseY = 0;
+                this.count = 14;
+
+                this.init();
+            }
+
+            init() {
+                this.scene = new THREE.Scene();
+                this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+                this.camera.position.z = 80;
+
+                this.renderer = new THREE.WebGLRenderer({
+                    canvas: this.canvas,
+                    alpha: true,
+                    antialias: true
+                });
+                this.renderer.setSize(window.innerWidth, window.innerHeight);
+                this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
+                this.scene.add(ambientLight);
+
+                const goldPointLight = new THREE.PointLight(0xD4AF37, 2, 200);
+                goldPointLight.position.set(0, 20, 50);
+                this.scene.add(goldPointLight);
+
+                this.createButterflies();
+
+                window.addEventListener('resize', () => this.onResize());
+                window.addEventListener('mousemove', (e) => this.onMouseMove(e));
+                window.addEventListener('touchmove', (e) => {
+                    if (e.touches.length > 0) {
+                        this.targetMouseX = (e.touches[0].clientX / window.innerWidth) * 2 - 1;
+                        this.targetMouseY = -(e.touches[0].clientY / window.innerHeight) * 2 + 1;
+                    }
+                }, { passive: true });
+
+                this.animate = this.animate.bind(this);
+                requestAnimationFrame(this.animate);
+            }
+
+            createButterflies() {
+                const wingShape = new THREE.Shape();
+                wingShape.moveTo(0, 0);
+                wingShape.bezierCurveTo(4, 5, 8, 9, 7, 14);
+                wingShape.bezierCurveTo(6, 17, 2, 18, 0, 10);
+                wingShape.bezierCurveTo(-2, 18, -6, 17, -7, 14);
+                wingShape.bezierCurveTo(-8, 9, -4, 5, 0, 0);
+
+                const wingGeo = new THREE.ShapeGeometry(wingShape);
+
+                for (let i = 0; i < this.count; i++) {
+                    const group = new THREE.Group();
+                    const isEmerald = i % 3 === 0;
+                    const wingColor = isEmerald ? 0x2A6A4E : 0xD4AF37;
+
+                    const wingMaterial = new THREE.MeshPhongMaterial({
+                        color: wingColor,
+                        emissive: isEmerald ? 0x0F3020 : 0x7A5E12,
+                        specular: 0xFFF0B8,
+                        shininess: 90,
+                        side: THREE.DoubleSide,
+                        transparent: true,
+                        opacity: 0.92,
+                    });
+
+                    const leftWing = new THREE.Mesh(wingGeo, wingMaterial);
+                    leftWing.scale.set(0.6, 0.6, 0.6);
+                    group.add(leftWing);
+
+                    const rightWing = new THREE.Mesh(wingGeo, wingMaterial);
+                    rightWing.scale.set(0.6, 0.6, 0.6);
+                    rightWing.rotation.y = Math.PI;
+                    group.add(rightWing);
+
+                    const spreadX = 90;
+                    const spreadY = 60;
+                    const spreadZ = 50;
+
+                    group.position.set(
+                        (Math.random() - 0.5) * spreadX,
+                        (Math.random() - 0.5) * spreadY,
+                        (Math.random() - 0.5) * spreadZ
+                    );
+
+                    this.scene.add(group);
+
+                    this.butterflies.push({
+                        group: group,
+                        leftWing: leftWing,
+                        rightWing: rightWing,
+                        basePos: group.position.clone(),
+                        velocity: new THREE.Vector3(
+                            (Math.random() - 0.5) * 0.3,
+                            (Math.random() - 0.5) * 0.3,
+                            (Math.random() - 0.5) * 0.2
+                        ),
+                        wingFlapSpeed: 10 + Math.random() * 8,
+                        flapPhase: Math.random() * Math.PI * 2,
+                        wanderAngle: Math.random() * Math.PI * 2,
+                        scale: 0.7 + Math.random() * 0.5
+                    });
+                }
+            }
+
+            onMouseMove(e) {
+                this.targetMouseX = (e.clientX / window.innerWidth) * 2 - 1;
+                this.targetMouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+            }
+
+            onResize() {
+                this.camera.aspect = window.innerWidth / window.innerHeight;
+                this.camera.updateProjectionMatrix();
+                this.renderer.setSize(window.innerWidth, window.innerHeight);
+            }
+
+            animate(timestamp) {
+                requestAnimationFrame(this.animate);
+                const time = timestamp * 0.001;
+
+                this.mouseX += (this.targetMouseX - this.mouseX) * 0.05;
+                this.mouseY += (this.targetMouseY - this.mouseY) * 0.05;
+
+                const mouseWorldX = this.mouseX * 60;
+                const mouseWorldY = this.mouseY * 40;
+
+                this.butterflies.forEach((b, idx) => {
+                    const flap = Math.sin(time * b.wingFlapSpeed + b.flapPhase);
+                    b.leftWing.rotation.y = flap * 0.95;
+                    b.rightWing.rotation.y = Math.PI - flap * 0.95;
+
+                    b.wanderAngle += (Math.random() - 0.5) * 0.1;
+                    b.velocity.x += Math.cos(b.wanderAngle) * 0.02;
+                    b.velocity.y += (Math.sin(time * 2 + idx) * 0.04) + 0.01;
+                    b.velocity.z += Math.sin(b.wanderAngle) * 0.01;
+
+                    const dx = b.group.position.x - mouseWorldX;
+                    const dy = b.group.position.y - mouseWorldY;
+                    const distSq = dx * dx + dy * dy;
+
+                    if (distSq < 750) {
+                        const dist = Math.sqrt(distSq) || 1;
+                        const force = (1 - dist / 30) * 0.6;
+                        b.velocity.x += (dx / dist) * force;
+                        b.velocity.y += (dy / dist) * force;
+                    }
+
+                    b.velocity.multiplyScalar(0.96);
+                    b.group.position.add(b.velocity);
+
+                    if (b.velocity.lengthSq() > 0.001) {
+                        b.group.rotation.z = Math.atan2(b.velocity.y, b.velocity.x) - Math.PI / 2;
+                        b.group.rotation.x = Math.sin(time * 3 + idx) * 0.2;
+                    }
+
+                    const boundX = 55;
+                    const boundY = 40;
+                    if (b.group.position.x > boundX) b.group.position.x = -boundX;
+                    if (b.group.position.x < -boundX) b.group.position.x = boundX;
+                    if (b.group.position.y > boundY) b.group.position.y = -boundY;
+                    if (b.group.position.y < -boundY) b.group.position.y = boundY;
+                });
+
+                this.renderer.render(this.scene, this.camera);
+            }
+        }
+
+
+        /* ==========================================================================
+           4. 2D FALLING PETAL & SCOTTISH BLOSSOM ENGINE
+           ========================================================================== */
+        class PetalPhysicsEngine {
+            constructor() {
+                this.canvas = document.getElementById('particles-2d-canvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.particles = [];
+                this.numParticles = 45;
+                this.mouseX = 0;
+                this.mouseY = 0;
+                this.prevMouseX = 0;
+                this.mouseVelocityX = 0;
+                this.wind = 0.5;
+
+                this.init();
+            }
+
+            init() {
+                this.resize();
+                window.addEventListener('resize', () => this.resize());
+
+                window.addEventListener('mousemove', (e) => {
+                    this.mouseVelocityX = (e.clientX - this.prevMouseX) * 0.08;
+                    this.prevMouseX = e.clientX;
+                    this.mouseX = e.clientX;
+                    this.mouseY = e.clientY;
+                });
+
+                const petalTypes = [
+                    { type: 'rose', color: 'rgba(163, 24, 45, 0.75)' },
+                    { type: 'ruby', color: 'rgba(90, 16, 30, 0.85)' },
+                    { type: 'heather', color: 'rgba(180, 120, 170, 0.75)' },
+                    { type: 'gold', color: 'rgba(212, 175, 55, 0.85)' }
+                ];
+
+                for (let i = 0; i < this.numParticles; i++) {
+                    const chosen = petalTypes[Math.floor(Math.random() * petalTypes.length)];
+                    this.particles.push({
+                        x: Math.random() * this.width,
+                        y: Math.random() * this.height,
+                        size: 8 + Math.random() * 14,
+                        type: chosen.type,
+                        color: chosen.color,
+                        speedY: 0.8 + Math.random() * 1.6,
+                        speedX: (Math.random() - 0.5) * 0.8,
+                        rotation: Math.random() * Math.PI * 2,
+                        rotationSpeed: (Math.random() - 0.5) * 0.03,
+                        flipSpeed: 0.02 + Math.random() * 0.04,
+                        flip: 0,
+                        oscillationOffset: Math.random() * Math.PI * 2,
+                        opacity: 0.4 + Math.random() * 0.5
+                    });
+                }
+
+                this.render = this.render.bind(this);
+                requestAnimationFrame(this.render);
+            }
+
+            resize() {
+                this.width = window.innerWidth;
+                this.height = window.innerHeight;
+                this.canvas.width = this.width;
+                this.canvas.height = this.height;
+            }
+
+            render(timestamp) {
+                requestAnimationFrame(this.render);
+                this.ctx.clearRect(0, 0, this.width, this.height);
+
+                const time = timestamp * 0.001;
+                this.mouseVelocityX *= 0.95;
+
+                for (let i = 0; i < this.particles.length; i++) {
+                    const p = this.particles[i];
+
+                    p.y += p.speedY;
+                    p.x += p.speedX + Math.sin(time + p.oscillationOffset) * 0.7 + this.wind + this.mouseVelocityX;
+                    p.rotation += p.rotationSpeed;
+                    p.flip += p.flipSpeed;
+
+                    const dx = p.x - this.mouseX;
+                    const dy = p.y - this.mouseY;
+                    const distSq = dx * dx + dy * dy;
+                    if (distSq < 15000) {
+                        p.x += (dx / Math.sqrt(distSq)) * 2;
+                        p.y += (dy / Math.sqrt(distSq)) * 2;
+                    }
+
+                    if (p.y > this.height + 30) {
+                        p.y = -20;
+                        p.x = Math.random() * this.width;
+                    }
+                    if (p.x > this.width + 30) p.x = -20;
+                    if (p.x < -30) p.x = this.width + 20;
+
+                    this.ctx.save();
+                    this.ctx.translate(p.x, p.y);
+                    this.ctx.rotate(p.rotation);
+                    this.ctx.scale(Math.cos(p.flip), 1);
+                    this.ctx.globalAlpha = p.opacity;
+
+                    this.ctx.fillStyle = p.color;
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(0, -p.size);
+                    this.ctx.bezierCurveTo(p.size * 0.8, -p.size * 0.5, p.size * 0.8, p.size * 0.5, 0, p.size);
+                    this.ctx.bezierCurveTo(-p.size * 0.8, p.size * 0.5, -p.size * 0.8, -p.size * 0.5, 0, -p.size);
+                    this.ctx.fill();
+
+                    if (p.type === 'gold') {
+                        this.ctx.strokeStyle = '#FFF8E7';
+                        this.ctx.lineWidth = 0.6;
+                        this.ctx.stroke();
+                    }
+
+                    this.ctx.restore();
+                }
+            }
+        }
+
+
+        /* ==========================================================================
+           5. SCROLLTRIGGER & 3D CARD PARALLAX ANIMATIONS (GSAP)
+           ========================================================================== */
+        function initScrollAnimations() {
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.from(".hero-anim", {
+                y: 35,
+                opacity: 0,
+                stagger: 0.15,
+                duration: 1.2,
+                ease: "power3.out"
+            });
+
+            gsap.from(".story-card", {
+                scrollTrigger: {
+                    trigger: "#our-story",
+                    start: "top 75%",
+                },
+                y: 45,
+                opacity: 0,
+                stagger: 0.2,
+                duration: 1.2,
+                ease: "power2.out"
+            });
+
+            gsap.utils.toArray('.timeline-entry').forEach((entry) => {
+                gsap.from(entry, {
+                    scrollTrigger: {
+                        trigger: entry,
+                        start: "top 85%",
+                    },
+                    y: 40,
+                    opacity: 0,
+                    duration: 1,
+                    ease: "power2.out"
+                });
+            });
+
+            document.querySelectorAll('.tilt-card').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = ((y - centerY) / centerY) * -6;
+                    const rotateY = ((x - centerX) / centerX) * 6;
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+                });
+            });
+        }
+
+
+        /* ==========================================================================
+           6. INTERACTIVE RSVP SUBMIT WITH GOLD PARTICLE BURST & WHATSAPP REDIRECT
+           ========================================================================== */
+        function submitRoyalRSVP(e) {
+            e.preventDefault();
+            const submitBtn = document.getElementById('rsvp-submit-btn');
+            const form = document.getElementById('royal-rsvp-form');
+            const success = document.getElementById('rsvp-success');
+
+            const name = document.getElementById('guest-name').value.trim() || 'Honored Guest';
+            const guestSelect = document.getElementById('guest-count');
+            const guestCount = guestSelect.options[guestSelect.selectedIndex].text;
+            
+            const dietSelect = document.getElementById('dietary-preference');
+            const dietPref = dietSelect.options[dietSelect.selectedIndex].text;
+            
+            const attendingRadio = document.querySelector('input[name="attending"]:checked');
+            const attendingStatus = (attendingRadio && attendingRadio.value === 'joyfully') ? 'Joyfully Accepts 🥂' : 'Regretfully Declines 💌';
+            
+            const wishes = document.getElementById('wishes-note').value.trim() || 'May the Lord shower your union with endless love, peace, and grace!';
+
+            const waMessage = 
+`🏰 *ROYAL CHRISTIAN VOW RENEWAL & 20TH JUBILEE* 🏰
+📍 *Blairquhan Castle, Maybole, Ayrshire, Scotland*
+
+👑 *Full Name & Title:* ${name}
+👥 *Number of Nobles (Guests):* ${guestCount}
+🍽️ *Banquet Preference:* ${dietPref}
+✨ *Attending Status:* ${attendingStatus}
+🙏 *Blessings & Prayers:* ${wishes}
+
+#SURYAJYOTHIKA20YEARS`;
+
+            const waPhoneNumber = '919499912508';
+            const waUrl = `https://api.whatsapp.com/send?phone=${waPhoneNumber}&text=${encodeURIComponent(waMessage)}`;
+
+            submitBtn.innerHTML = `
+                <i data-lucide="loader-2" class="w-5 h-5 animate-spin text-burgundy-dark"></i>
+                <span>Sealing &amp; Opening WhatsApp...</span>
+            `;
+            lucide.createIcons();
+            submitBtn.disabled = true;
+
+            createGoldParticleBurst(submitBtn);
+
+            setTimeout(() => {
+                form.style.display = 'none';
+                
+                success.innerHTML = `
+                    <div class="w-16 h-16 rounded-full border-2 border-gold mx-auto mb-4 flex items-center justify-center bg-gold/10 text-gold animate-bounce">
+                        <i data-lucide="check-circle" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="font-cinzel text-2xl sm:text-3xl text-gold-foil font-bold mb-2">RSVP Sealed with Royal Honour</h3>
+                    <p class="font-playfair text-cream/90 text-base sm:text-lg mb-6">
+                        Thank you, <span class="text-gold font-semibold">${name}</span>. Your royal confirmation &amp; prayers are being sent via WhatsApp.
+                    </p>
+                    <a href="${waUrl}" target="_blank" class="btn-royal-gold inline-flex items-center gap-2 text-sm sm:text-base py-3 px-6 shadow-gold-glow">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="text-burgundy-dark fill-current">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                        </svg>
+                        <span>Open in WhatsApp (+91 9499912508)</span>
+                    </a>
+                    <div class="border-t border-gold/30 pt-4 mt-6">
+                        <p class="text-xs uppercase tracking-[0.25em] text-gold font-sans">#SURYAJYOTHIKA20YEARS</p>
+                    </div>
+                `;
+
+                success.classList.remove('hidden');
+                lucide.createIcons();
+
+                if (royalAudio && royalAudio.ctx) {
+                    royalAudio.playHarpPluck(554.37, royalAudio.ctx.currentTime, 3, 0.35);
+                    royalAudio.playHarpPluck(739.99, royalAudio.ctx.currentTime + 0.15, 3.5, 0.35);
+                }
+
+                window.open(waUrl, '_blank');
+            }, 1000);
+        }
+
+        function createGoldParticleBurst(button) {
+            const rect = button.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const numSparks = 25;
+
+            for (let i = 0; i < numSparks; i++) {
+                const spark = document.createElement('div');
+                spark.style.position = 'fixed';
+                spark.style.width = `${Math.random() * 6 + 4}px`;
+                spark.style.height = spark.style.width;
+                spark.style.borderRadius = '50%';
+                spark.style.backgroundColor = ['#D4AF37', '#FFF0B8', '#ECC86C'][Math.floor(Math.random() * 3)];
+                spark.style.boxShadow = '0 0 10px #D4AF37';
+                spark.style.left = `${centerX}px`;
+                spark.style.top = `${centerY}px`;
+                spark.style.pointerEvents = 'none';
+                spark.style.zIndex = '9999';
+
+                document.body.appendChild(spark);
+
+                const angle = Math.random() * Math.PI * 2;
+                const distance = 60 + Math.random() * 120;
+                const destX = centerX + Math.cos(angle) * distance;
+                const destY = centerY + Math.sin(angle) * distance;
+
+                gsap.to(spark, {
+                    x: destX - centerX,
+                    y: destY - centerY,
+                    opacity: 0,
+                    scale: 0.2,
+                    duration: 0.9 + Math.random() * 0.4,
+                    ease: "power2.out",
+                    onComplete: () => spark.remove()
+                });
+            }
+        }
+
+        /* ==========================================================================
+           7. CHERISHED MEMORIES SPOTLIGHT CAROUSEL & ROYAL LIGHTBOX ENGINE
+           ========================================================================== */
+        const memoriesData = [
+            {
+                img: "./sj/1 (1).jpg",
+                tag: "Sacred Chapel Vows",
+                title: "The Holy Altar Vows",
+                desc: "Before the chapel altar, surrounded by divine grace, heartfelt prayers, and two decades of eternal vows."
+            },
+            {
+                img: "./sj/1 (2).jpg",
+                tag: "Aisle of Celebration",
+                title: "Joyful Petal Shower",
+                desc: "Stepping down the aisle amidst a celestial shower of flower petals, joyous smiles, and resounding applause."
+            },
+            {
+                img: "./sj/1 (3).jpg",
+                tag: "Devotion & Affection",
+                title: "Tender Whispers",
+                desc: "A quiet, intimate moment of affection, unwavering strength, and love proven through twenty years."
+            },
+            {
+                img: "./sj/1 (4).jpg",
+                tag: "Elegance & Radiance",
+                title: "Grace of the Castle Bride",
+                desc: "Pure radiance holding the bridal bouquet in the grand Scottish cathedral chapel of Blairquhan."
+            },
+            {
+                img: "./sj/1 (5).jpg",
+                tag: "Holy Covenant",
+                title: "Joined Before God",
+                desc: "Standing hand-in-hand before the cross and altar, bound in an unbreakable lifelong covenant."
+            },
+            {
+                img: "./sj/1 (6).jpg",
+                tag: "Grand Ceremony",
+                title: "Sacred Chapel Assembly",
+                desc: "The sacred gathering of family and loved ones witnessing the renewal of eternal matrimony."
+            },
+            {
+                img: "./sj/1 (7).jpg",
+                tag: "Scottish Highlands",
+                title: "Loch Lomond Serenade",
+                desc: "Standing upon the tranquil waters of the Scottish Highlands in regal purple and burgundy majesty."
+            },
+            {
+                img: "./sj/1 (8).jpg",
+                tag: "Sacred Rings",
+                title: "The Rings of Eternity",
+                desc: "Two hands clasped together, bearing rings that signify two decades of victory, patience, and love."
+            },
+            {
+                img: "./sj/1 (9).jpg",
+                tag: "Highland Romance",
+                title: "Highland Embrace",
+                desc: "Warmth and laughter amidst the Scottish mist, a true testament that love conquers all."
+            },
+            {
+                img: "./sj/1 (10).jpg",
+                tag: "Castle Architecture",
+                title: "Castle Grand Staircase",
+                desc: "Resting side-by-side upon the historic wooden grand staircase of Blairquhan Castle."
+            },
+            {
+                img: "./sj/1 (11).jpg",
+                tag: "Historic Heritage",
+                title: "In the Castle Library",
+                desc: "A classic black and white portrait surrounded by centuries of literature, wisdom, and heritage."
+            },
+            {
+                img: "./sj/1 (12).jpg",
+                tag: "Royal Splendor",
+                title: "Royal Scottish Splendor",
+                desc: "Dressed in bespoke regal attire, radiating royal charm beside the serene Scottish waters."
+            },
+            {
+                img: "./sj/1 (13).jpg",
+                tag: "Castle Estate",
+                title: "Blairquhan Castle Gate Arrival",
+                desc: "Arriving at the historic stone portal and archway of Blairquhan Castle Estate."
+            }
+        ];
+
+        let currentMemoryIndex = 0;
+        let isAutoplayActive = true;
+        let autoplayInterval = null;
+        let progressInterval = null;
+        let progressPercent = 0;
+        const AUTOPLAY_DURATION = 4000; // 4 seconds per slide
+
+        function initMemoriesCarousel() {
+            renderThumbnails();
+            updateStageMemory(0, false);
+            startAutoplay();
+        }
+
+        function renderThumbnails() {
+            const container = document.getElementById('thumbnail-filmstrip');
+            if (!container) return;
+            container.innerHTML = memoriesData.map((item, idx) => `
+                <button 
+                    onclick="goToMemory(${idx})" 
+                    class="thumb-btn flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded border-2 transition-all duration-300 overflow-hidden cursor-pointer ${idx === currentMemoryIndex ? 'border-gold shadow-gold-glow scale-105 opacity-100' : 'border-gold/30 opacity-50 hover:opacity-100 hover:border-gold/70'}"
+                    id="thumb-${idx}"
+                    title="${item.title}"
+                >
+                    <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover">
+                </button>
+            `).join('');
+        }
+
+        function updateStageMemory(index, animate = true) {
+            currentMemoryIndex = (index + memoriesData.length) % memoriesData.length;
+            const data = memoriesData[currentMemoryIndex];
+
+            const img = document.getElementById('stage-img');
+            const bgImg = document.getElementById('stage-bg');
+            const tag = document.getElementById('stage-tag');
+            const title = document.getElementById('stage-title');
+            const desc = document.getElementById('stage-desc');
+            const counter = document.getElementById('carousel-counter');
+
+            if (counter) counter.innerText = `${String(currentMemoryIndex + 1).padStart(2, '0')} / ${String(memoriesData.length).padStart(2, '0')}`;
+            if (bgImg) bgImg.src = data.img;
+
+            if (animate && img) {
+                gsap.to(img, {
+                    opacity: 0.3,
+                    scale: 0.96,
+                    duration: 0.25,
+                    ease: "power2.inOut",
+                    onComplete: () => {
+                        img.src = data.img;
+                        if (tag) tag.innerText = data.tag;
+                        if (title) title.innerText = data.title;
+                        if (desc) desc.innerText = `"${data.desc}"`;
+                        gsap.to(img, {
+                            opacity: 1,
+                            scale: 1,
+                            duration: 0.45,
+                            ease: "power2.out"
+                        });
+                    }
+                });
+            } else if (img) {
+                img.src = data.img;
+                if (tag) tag.innerText = data.tag;
+                if (title) title.innerText = data.title;
+                if (desc) desc.innerText = `"${data.desc}"`;
+            }
+
+            // Update Active Thumbnail styling (smooth internal horizontal scroll without moving window viewport)
+            memoriesData.forEach((_, idx) => {
+                const thumb = document.getElementById(`thumb-${idx}`);
+                if (thumb) {
+                    if (idx === currentMemoryIndex) {
+                        thumb.className = "thumb-btn flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded border-2 border-gold shadow-gold-glow scale-105 opacity-100 transition-all duration-300 overflow-hidden cursor-pointer";
+                        const filmstrip = document.getElementById('thumbnail-filmstrip');
+                        if (filmstrip) {
+                            const targetScroll = thumb.offsetLeft - (filmstrip.clientWidth / 2) + (thumb.clientWidth / 2);
+                            filmstrip.scrollTo({ left: targetScroll, behavior: 'smooth' });
+                        }
+                    } else {
+                        thumb.className = "thumb-btn flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded border-2 border-gold/30 opacity-50 hover:opacity-100 hover:border-gold/70 transition-all duration-300 overflow-hidden cursor-pointer";
+                    }
+                }
+            });
+        }
+
+        function nextMemory() {
+            updateStageMemory(currentMemoryIndex + 1);
+            resetAutoplay();
+        }
+
+        function prevMemory() {
+            updateStageMemory(currentMemoryIndex - 1);
+            resetAutoplay();
+        }
+
+        function goToMemory(index) {
+            updateStageMemory(index);
+            resetAutoplay();
+        }
+
+        function startAutoplay() {
+            if (!isAutoplayActive) return;
+            clearInterval(autoplayInterval);
+            clearInterval(progressInterval);
+            progressPercent = 0;
+
+            const progressBar = document.getElementById('carousel-progress');
+            const stepMs = 50;
+            const stepPercent = (stepMs / AUTOPLAY_DURATION) * 100;
+
+            progressInterval = setInterval(() => {
+                progressPercent += stepPercent;
+                if (progressBar) progressBar.style.width = `${Math.min(progressPercent, 100)}%`;
+                if (progressPercent >= 100) {
+                    progressPercent = 0;
+                    updateStageMemory(currentMemoryIndex + 1);
+                }
+            }, stepMs);
+        }
+
+        function resetAutoplay() {
+            progressPercent = 0;
+            const progressBar = document.getElementById('carousel-progress');
+            if (progressBar) progressBar.style.width = '0%';
+            if (isAutoplayActive) {
+                startAutoplay();
+            }
+        }
+
+        function toggleCarouselAutoplay() {
+            isAutoplayActive = !isAutoplayActive;
+            const btn = document.getElementById('carousel-autoplay-btn');
+            const icon = document.getElementById('carousel-play-icon');
+            const text = document.getElementById('carousel-play-text');
+            const progressBar = document.getElementById('carousel-progress');
+
+            if (isAutoplayActive) {
+                if (icon) icon.setAttribute('data-lucide', 'pause');
+                if (text) text.innerText = 'Auto';
+                startAutoplay();
+            } else {
+                clearInterval(progressInterval);
+                if (icon) icon.setAttribute('data-lucide', 'play');
+                if (text) text.innerText = 'Paused';
+                if (progressBar) progressBar.style.width = '0%';
+            }
+            lucide.createIcons();
+        }
+
+        /* Fullscreen Lightbox Controller */
+        let currentLightboxIndex = 0;
+
+        function openRoyalLightbox(index) {
+            currentLightboxIndex = (index + memoriesData.length) % memoriesData.length;
+            const modal = document.getElementById('royal-lightbox');
+            updateLightboxContent();
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+
+        function closeRoyalLightbox() {
+            const modal = document.getElementById('royal-lightbox');
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        function updateLightboxContent() {
+            const data = memoriesData[currentLightboxIndex];
+            const img = document.getElementById('lightbox-img');
+            const tag = document.getElementById('lightbox-tag');
+            const title = document.getElementById('lightbox-title');
+            const desc = document.getElementById('lightbox-desc');
+            const counter = document.getElementById('lightbox-counter');
+
+            if (img) {
+                img.style.opacity = '0.4';
+                setTimeout(() => {
+                    img.src = data.img;
+                    img.style.opacity = '1';
+                }, 150);
+            }
+            if (tag) tag.innerText = data.tag;
+            if (title) title.innerText = data.title;
+            if (desc) desc.innerText = `"${data.desc}"`;
+            if (counter) counter.innerText = `Photo ${String(currentLightboxIndex + 1).padStart(2, '0')} of ${String(memoriesData.length).padStart(2, '0')}`;
+        }
+
+        function nextLightboxMemory() {
+            currentLightboxIndex = (currentLightboxIndex + 1) % memoriesData.length;
+            updateLightboxContent();
+        }
+
+        function prevLightboxMemory() {
+            currentLightboxIndex = (currentLightboxIndex - 1 + memoriesData.length) % memoriesData.length;
+            updateLightboxContent();
+        }
+
+        // Mobile Touch Swipe Gestures for Carousel & Lightbox
+        function initTouchGestures() {
+            let touchStartX = 0;
+            let touchStartY = 0;
+
+            const stageElement = document.getElementById('stage-img');
+            if (stageElement) {
+                stageElement.parentElement.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                    touchStartY = e.changedTouches[0].screenY;
+                }, { passive: true });
+
+                stageElement.parentElement.addEventListener('touchend', (e) => {
+                    const touchEndX = e.changedTouches[0].screenX;
+                    const touchEndY = e.changedTouches[0].screenY;
+                    const deltaX = touchEndX - touchStartX;
+                    const deltaY = touchEndY - touchStartY;
+
+                    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 35) {
+                        if (deltaX < 0) {
+                            nextMemory();
+                        } else {
+                            prevMemory();
+                        }
+                    }
+                }, { passive: true });
+            }
+
+            const lightboxModal = document.getElementById('royal-lightbox');
+            if (lightboxModal) {
+                lightboxModal.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                    touchStartY = e.changedTouches[0].screenY;
+                }, { passive: true });
+
+                lightboxModal.addEventListener('touchend', (e) => {
+                    const touchEndX = e.changedTouches[0].screenX;
+                    const touchEndY = e.changedTouches[0].screenY;
+                    const deltaX = touchEndX - touchStartX;
+                    const deltaY = touchEndY - touchStartY;
+
+                    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 40) {
+                        if (deltaX < 0) {
+                            nextLightboxMemory();
+                        } else {
+                            prevLightboxMemory();
+                        }
+                    }
+                }, { passive: true });
+            }
+        }
+
+        // Mobile AudioContext Auto-Unlock on first touch/tap
+        document.addEventListener('touchstart', function unlockAudio() {
+            if (royalAudio && royalAudio.ctx && royalAudio.ctx.state === 'suspended') {
+                royalAudio.ctx.resume();
+            }
+        }, { passive: true, once: true });
+
+        // Keyboard Shortcuts for Lightbox & Gallery
+        window.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('royal-lightbox');
+            if (modal && !modal.classList.contains('hidden')) {
+                if (e.key === 'Escape') closeRoyalLightbox();
+                if (e.key === 'ArrowRight') nextLightboxMemory();
+                if (e.key === 'ArrowLeft') prevLightboxMemory();
+            }
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            new ThreeButterfliesEngine();
+            new PetalPhysicsEngine();
+            initMemoriesCarousel();
+            initTouchGestures();
+        });
+    </script>
+</body>
+</html>
